@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const slides = [
   {
@@ -10,6 +11,7 @@ const slides = [
     title: 'OLTRE 40 MOSTRE ESPOSITIVE IN TUTTA ITALIA',
     description: 'Compila il modulo contatti per sapere qual è la sede più vicina a te, vieni a trovarci. Numerose sorprese come un arredatore a te dedicato per il tempo che desideri',
     cta: 'SCOPRI DI PIÙ',
+    image: '/images/hero-1.jpg',
     bgGradient: 'from-primary/90 to-primary-dark/90',
   },
   {
@@ -17,6 +19,7 @@ const slides = [
     title: 'CUCINE PRESTIGIOSE A PREZZI SCONTATI',
     description: 'Vieni a scoprire la tua nuova cucina, fatta con materiali di prima qualità, MADE IN ITALY a prezzi da ingrosso nate da una attenta selezione con i migliori produttori',
     cta: 'SCOPRI DI PIÙ',
+    image: '/images/hero-2.jpg',
     bgGradient: 'from-secondary/90 to-secondary-dark/90',
   },
   {
@@ -24,6 +27,7 @@ const slides = [
     title: "L'ALTA QUALITÀ DEL MADE IN ITALY A PREZZI ACCESSIBILI A TUTTI",
     description: 'Siamo convinti che la manodopera degli artigiani Italiani sia un valore aggiunto per una cucina che deve avere standard elevati di qualità e robustezza. Collaboriamo solo con produttori ITALIANI!',
     cta: 'SCOPRI DI PIÙ',
+    image: '/images/hero-3.jpg',
     bgGradient: 'from-accent/90 to-accent-dark/90',
   },
   {
@@ -31,6 +35,7 @@ const slides = [
     title: 'RICHIEDI SUBITO IL TUO BUONO SCONTO',
     description: "Compilando il modulo contatti, subito per te un buono sconto di 1000 euro che potrai utilizzare per l'acquisto della tua cucina in uno dei nostri punti vendita",
     cta: 'SCOPRI DI PIÙ',
+    image: '/images/hero-1.jpg',
     bgGradient: 'from-primary-light/90 to-primary/90',
   },
 ]
@@ -59,14 +64,20 @@ const HeroCarousel = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.7 }}
-          className={`absolute inset-0 bg-gradient-to-br ${slides[currentSlide].bgGradient}`}
+          className="absolute inset-0"
         >
-          {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }} />
-          </div>
+          {/* Background Image */}
+          <Image
+            src={slides[currentSlide].image}
+            alt={slides[currentSlide].title}
+            fill
+            className="object-cover"
+            priority={currentSlide === 0}
+            quality={90}
+          />
+          
+          {/* Overlay Gradient */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${slides[currentSlide].bgGradient}`} />
 
           {/* Content */}
           <div className="relative container-custom h-full flex items-center">

@@ -1,28 +1,29 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const products = [
   {
     id: 1,
-    title: 'Stile SHABBY CHIC',
-    discount: '-30%',
-    image: '/images/shabby-chic.jpg',
-    alt: 'Cucina Stile Shabby Chic',
+    title: 'Stile MODERNO',
+    discount: '-45%',
+    image: '/images/moderno.jpg',
+    alt: 'Cucina Stile Moderno - Design contemporaneo con materiali di alta qualità',
   },
   {
     id: 2,
-    title: 'STILE RUSTICO',
+    title: 'STILE ELEGANTE',
     discount: '-40%',
-    image: '/images/rustico.jpg',
-    alt: 'Cucina Stile Rustico',
+    image: '/images/hero-2.jpg',
+    alt: 'Cucina Stile Elegante - Minimalismo e funzionalità',
   },
   {
     id: 3,
-    title: 'STILE MODERNO',
-    discount: '-45%',
-    image: '/images/moderno.jpg',
-    alt: 'Cucina Stile Moderno',
+    title: 'STILE LUXURY',
+    discount: '-30%',
+    image: '/images/hero-3.jpg',
+    alt: 'Cucina Stile Luxury - Open concept di alta gamma',
   },
 ]
 
@@ -52,13 +53,15 @@ const ProductShowcase = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="card group cursor-pointer"
             >
-              <div className="relative h-80 overflow-hidden bg-gray-200">
-                {/* Placeholder for image - replace with actual images */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                  <span className="text-gray-500 text-lg font-semibold">
-                    {product.title}
-                  </span>
-                </div>
+              <div className="relative h-80 overflow-hidden">
+                {/* Product Image */}
+                <Image
+                  src={product.image}
+                  alt={product.alt}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
                 
                 {/* Discount Badge */}
                 <div className="discount-badge">
@@ -66,7 +69,7 @@ const ProductShowcase = () => {
                 </div>
 
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
                   <button className="bg-white text-secondary font-bold py-3 px-8 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                     SCOPRI DI PIÙ
                   </button>
