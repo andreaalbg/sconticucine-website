@@ -10,24 +10,24 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#f5f5f5',
-          dark: '#e5e5e5',
-          light: '#fafafa',
+          DEFAULT: '#9caf88',
+          dark: '#8a9d77',
+          light: '#b8c9a8',
         },
         secondary: {
-          DEFAULT: '#71717a',
-          dark: '#52525b',
-          light: '#a1a1aa',
+          DEFAULT: '#6b7c5d',
+          dark: '#5a6b4d',
+          light: '#8a9d7e',
         },
         accent: {
-          DEFAULT: '#e4e4e7',
-          dark: '#d4d4d8',
-          light: '#f4f4f5',
+          DEFAULT: '#d4dac9',
+          dark: '#c5cdb9',
+          light: '#e5e9dd',
         },
       },
       fontFamily: {
-        sans: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
-        heading: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-raleway)', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-raleway)', 'system-ui', 'sans-serif'],
       },
       container: {
         center: true,

@@ -45,14 +45,14 @@ const Testimonials = () => {
               className="bg-white rounded-2xl shadow-xl p-8 relative"
             >
               {/* Quote Icon */}
-              <div className="absolute top-6 right-6 text-gray-100">
+              <div className="absolute top-6 right-6 text-accent">
                 <FaQuoteLeft className="text-5xl" />
               </div>
 
               {/* Rating */}
               <div className="flex space-x-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <FaStar key={i} className="text-secondary text-xl" />
+                  <FaStar key={i} className="text-primary text-xl" />
                 ))}
               </div>
 

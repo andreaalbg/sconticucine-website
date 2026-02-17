@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Montserrat } from 'next/font/google'
+import { Raleway } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -7,10 +7,10 @@ import ScrollToTop from '@/components/ui/ScrollToTop'
 import Analytics from '@/components/Analytics'
 import { organizationSchema, localBusinessSchema, faqSchema } from '@/lib/structured-data'
 
-const montserrat = Montserrat({ 
+const raleway = Raleway({ 
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-montserrat',
+  variable: '--font-raleway',
   display: 'swap',
 })
 
@@ -74,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="it" className={montserrat.variable}>
+    <html lang="it" className={raleway.variable}>
       <head>
         {/* Structured Data for SEO */}
         <script

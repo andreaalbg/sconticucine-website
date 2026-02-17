@@ -5,7 +5,7 @@ import { FaMapMarkerAlt, FaPhone, FaClock } from 'react-icons/fa'
 
 const StoreLocator = () => {
   return (
-    <section id="stores" className="py-20 bg-secondary text-white">
+    <section id="stores" className="py-20 bg-secondary-dark text-white">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -55,7 +55,7 @@ const StoreLocator = () => {
             </a>
             <a
               href="#catalog"
-              className="bg-gray-800 hover:bg-gray-700 text-white font-normal py-4 px-10 rounded-lg text-lg shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="bg-primary hover:bg-primary-dark text-white font-normal py-4 px-10 rounded-lg text-lg shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
               Richiedi Catalogo
             </a>

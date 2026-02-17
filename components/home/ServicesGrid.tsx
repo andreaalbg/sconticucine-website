@@ -62,7 +62,7 @@ const ServicesGrid = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="card p-8 text-center"
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 text-secondary mb-6">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent text-secondary mb-6">
                 <service.icon className="text-3xl" />
               </div>
               <h3 className="text-lg font-normal text-gray-800 mb-4 tracking-wide">

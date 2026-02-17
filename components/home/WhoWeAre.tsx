@@ -52,7 +52,7 @@ const WhoWeAre = () => {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="text-center"
             >
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gray-100 text-secondary mb-6 shadow-sm">
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent text-secondary mb-6 shadow-sm">
                 <feature.icon className="text-3xl" />
               </div>
               <h3 className="text-xl font-normal text-gray-800 mb-4 tracking-wide">

@@ -4,12 +4,12 @@
 
 @layer base {
   :root {
-    --font-montserrat: 'Montserrat', system-ui, sans-serif;
+    --font-raleway: 'Raleway', system-ui, sans-serif;
   }
   
   body {
     @apply bg-white text-gray-800 antialiased;
-    font-weight: 400;
+    font-weight: 300;
   }
   
   html {
