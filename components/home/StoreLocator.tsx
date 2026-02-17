@@ -55,7 +55,7 @@ const StoreLocator = () => {
             </a>
             <a
               href="#catalog"
-              className="bg-primary hover:bg-primary-dark text-white font-normal py-4 px-10 rounded-lg text-lg shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="bg-sage hover:bg-sage-dark text-white font-normal py-4 px-10 rounded-lg text-lg shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
               Richiedi Catalogo
             </a>
@@ -64,7 +64,7 @@ const StoreLocator = () => {
           {/* Additional Info */}
           <div className="mt-12 pt-12 border-t border-white/20">
             <p className="text-lg text-white/90 font-light">
-              🎁 Buono sconto <span className="text-white font-semibold">1000€</span> richiedendo il catalogo
+              🎁 Buono sconto <span className="text-sage-light font-semibold">1000€</span> richiedendo il catalogo
             </p>
           </div>
         </motion.div>

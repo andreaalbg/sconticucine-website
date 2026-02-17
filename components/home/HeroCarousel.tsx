@@ -12,7 +12,7 @@ const slides = [
     description: 'Scopri i nostri soggiorni Made in Italy, dove eleganza e funzionalità si incontrano. Oltre 40 showroom pronti ad accoglierti con un designer dedicato al tuo progetto',
     cta: 'Esplora le Collezioni',
     image: '/images/hero-1.jpg',
-    bgGradient: 'from-white/80 to-accent/60',
+    bgGradient: 'from-white/85 to-sage-light/50',
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const slides = [
     description: 'Crea il soggiorno dei tuoi sogni con i nostri arredi personalizzabili. Design italiano, materiali di alta qualità e attenzione ai dettagli in ogni elemento',
     cta: 'Scopri di Più',
     image: '/images/hero-2.jpg',
-    bgGradient: 'from-primary/30 to-white/85',
+    bgGradient: 'from-accent/60 to-sage/30',
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const slides = [
     description: 'Soggiorni che riflettono il tuo stile di vita. Dal minimalismo moderno al comfort elegante, trova la soluzione perfetta per il tuo spazio abitativo',
     cta: 'Richiedi Consulenza',
     image: '/images/hero-3.jpg',
-    bgGradient: 'from-accent/50 to-primary/40',
+    bgGradient: 'from-sage-light/45 to-primary/35',
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const slides = [
     description: "Richiedi il catalogo gratuito e ricevi subito un buono sconto di 1000€ per l'acquisto del tuo nuovo soggiorno. Progettazione gratuita inclusa",
     cta: 'Richiedi Ora',
     image: '/images/hero-1.jpg',
-    bgGradient: 'from-accent-light/70 to-primary/25',
+    bgGradient: 'from-white/80 to-primary/30',
   },
 ]
 

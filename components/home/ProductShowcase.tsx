@@ -64,7 +64,7 @@ const ProductShowcase = () => {
                 />
                 
                 {/* Discount Badge */}
-                <div className="absolute top-4 right-4 bg-secondary text-white font-normal text-xl py-2 px-5 rounded-lg shadow-md z-10">
+                <div className="absolute top-4 right-4 bg-sage text-white font-normal text-xl py-2 px-5 rounded-lg shadow-md z-10">
                   {product.discount}
                 </div>
 

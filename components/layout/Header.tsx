@@ -37,7 +37,7 @@ const Header = () => {
           <Link href="/" className="flex items-center space-x-2">
             <div className="text-2xl md:text-3xl font-light font-heading" style={{letterSpacing: '0.1em'}}>
               <span className="text-secondary-dark">Area</span>
-              <span className="text-primary">Living</span>
+              <span className="text-sage">Living</span>
               <span className="text-secondary-light">Design</span>
             </div>
           </Link>

@@ -10,19 +10,24 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#c9b8a0',
-          dark: '#b5a08a',
-          light: '#ddc9b4',
+          DEFAULT: '#a8b89d',
+          dark: '#8fa584',
+          light: '#c3ceb8',
         },
         secondary: {
-          DEFAULT: '#8b7355',
-          dark: '#6d5a44',
-          light: '#a89179',
+          DEFAULT: '#7a8a6f',
+          dark: '#5f6e55',
+          light: '#98a88d',
         },
         accent: {
-          DEFAULT: '#e8dfd5',
-          dark: '#d4c7b8',
-          light: '#f5f0ea',
+          DEFAULT: '#e8ebe5',
+          dark: '#d4d9cf',
+          light: '#f5f7f3',
+        },
+        sage: {
+          DEFAULT: '#b4c4a8',
+          dark: '#9db091',
+          light: '#d0dbc6',
         },
       },
       fontFamily: {
