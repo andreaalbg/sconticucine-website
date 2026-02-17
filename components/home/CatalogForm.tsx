@@ -20,7 +20,7 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
     e.preventDefault()
     // Handle form submission
     console.log('Form submitted:', formData)
-    alert("Grazie! Riceverai il catalogo all'indirizzo email fornito.")
+    alert("Grazie! Riceverai il catalogo e il buono sconto all'indirizzo email fornito.")
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,8 +32,8 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
   }
 
   const title = variant === 'top' 
-    ? 'COMPILA IL MODULO PER RICEVERE IL CATALOGO A CASA TUA'
-    : 'OTTIENI LA PROGETTAZIONE GRATUITA DA CASA'
+    ? 'Richiedi il Catalogo Gratuito'
+    : 'Progettazione Gratuita del Tuo Soggiorno'
 
   return (
     <section id="catalog" className={`py-20 ${variant === 'top' ? 'bg-gray-50' : 'bg-primary/5'}`}>
@@ -46,7 +46,7 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
           className="max-w-3xl mx-auto"
         >
           {/* Section Header */}
-          <h2 className="section-title text-secondary mb-12">{title}</h2>
+          <h2 className="section-title text-gray-800 mb-12">{title}</h2>
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
@@ -138,7 +138,7 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
               type="submit"
               className="w-full btn-primary text-lg py-4"
             >
-              RICHIEDI IL CATALOGO GRATUITO
+              Richiedi il Catalogo Gratuito
             </button>
 
             <p className="text-center text-sm text-gray-500 mt-4">
@@ -154,9 +154,9 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-center mt-8"
           >
-            <p className="text-lg text-gray-600">
-              📦 Riceverai il catalogo completo via email<br />
-              🎁 Buono sconto da <span className="text-primary font-bold">1000€</span> incluso!
+            <p className="text-lg text-gray-600 font-light">
+              📦 Catalogo completo via email<br />
+              🎁 Buono sconto da <span className="text-secondary font-semibold">1000€</span> incluso
             </p>
           </motion.div>
         </motion.div>

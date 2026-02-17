@@ -4,12 +4,12 @@
 
 @layer base {
   :root {
-    --font-inter: 'Inter', system-ui, sans-serif;
-    --font-poppins: 'Poppins', system-ui, sans-serif;
+    --font-montserrat: 'Montserrat', system-ui, sans-serif;
   }
   
   body {
-    @apply bg-white text-gray-900 antialiased;
+    @apply bg-white text-gray-800 antialiased;
+    font-weight: 400;
   }
   
   html {
@@ -19,15 +19,15 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+    @apply bg-secondary hover:bg-secondary-dark text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
   }
   
   .btn-secondary {
-    @apply bg-secondary hover:bg-secondary-dark text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+    @apply bg-gray-100 hover:bg-gray-200 text-secondary font-medium py-3 px-8 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-0.5;
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 uppercase tracking-tight;
+    @apply text-3xl md:text-4xl lg:text-5xl font-light text-center mb-8 tracking-wide text-gray-800;
   }
   
   .section-subtitle {

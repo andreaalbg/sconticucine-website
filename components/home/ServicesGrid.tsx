@@ -6,33 +6,33 @@ import { FaFlag, FaGift, FaBolt, FaClock, FaCalendarCheck, FaShieldAlt } from 'r
 const services = [
   {
     icon: FaFlag,
-    title: 'MADE IN ITALY',
-    description: 'Un valore che riteniamo importante è quello del MADE IN ITALY, sempre caratteristica fondamentale di tutti i nostri prodotti.',
+    title: 'Made in Italy',
+    description: 'Design e produzione italiana. Ogni pezzo è realizzato con cura artigianale da maestranze specializzate, garantendo qualità e stile inconfondibile.',
   },
   {
     icon: FaGift,
-    title: 'BUONO DA 1000 EURO',
-    description: 'Compilando il modulo per ricevere il catalogo, subito per te anche un fantastico BUONO da 1000 EURO per la tua nuova cucina',
+    title: 'Buono Sconto 1000€',
+    description: 'Richiedi il catalogo gratuito e ricevi immediatamente un buono sconto di 1000€ per l\'acquisto del tuo nuovo soggiorno.',
   },
   {
     icon: FaBolt,
-    title: 'PROMO ELETTRODOMESTICI',
-    description: 'Per completare la tua cucina, da noi trovi sempre promozioni per avere sconti eccezionali su tutti gli elettrodomestici',
+    title: 'Progettazione 3D',
+    description: 'Visualizza il tuo soggiorno prima di acquistarlo. Offriamo progettazione 3D gratuita per aiutarti a immaginare il risultato finale.',
   },
   {
     icon: FaClock,
-    title: 'APERTO 7 su 7',
-    description: 'Diamo valore al tuo tempo, per questo abbiamo ampliato i nostri orari, ti diamo così la possibilità di venirci a trovare quando sarà più comodo per te',
+    title: 'Showroom Aperti 7/7',
+    description: 'I nostri showroom sono aperti tutti i giorni per offrirti la massima flessibilità. Vieni quando è più comodo per te.',
   },
   {
     icon: FaCalendarCheck,
-    title: 'PRENOTA LA TUA VISITA',
-    description: 'Richiedi la visita presso lo showroom più vicino a casa tua, ti accoglierà un arredatore dedicato a te, che ti assisterà per tutto il tempo che desideri',
+    title: 'Consulenza Personalizzata',
+    description: 'Prenota una consulenza gratuita con un nostro designer. Ti seguiremo in ogni fase del progetto, dal concept alla realizzazione.',
   },
   {
     icon: FaShieldAlt,
-    title: 'GARANZIA 5 ANNI',
-    description: "Sconti cucine ha scelto di garantire tutte le sue cucine per 5 anni con l'obiettivo di fornire al proprio cliente la massima serenità e fiducia nell'acquisto.",
+    title: 'Garanzia 5 Anni',
+    description: "Tutti i nostri soggiorni sono coperti da garanzia completa di 5 anni. Acquista con la massima tranquillità e sicurezza.",
   },
 ]
 
@@ -48,7 +48,7 @@ const ServicesGrid = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="section-title text-secondary">I NOSTRI SERVIZI</h2>
+          <h2 className="section-title text-gray-800">I Nostri Servizi</h2>
         </motion.div>
 
         {/* Services Grid */}
@@ -62,13 +62,13 @@ const ServicesGrid = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="card p-8 text-center"
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 text-secondary mb-6">
                 <service.icon className="text-3xl" />
               </div>
-              <h3 className="text-lg font-bold text-secondary mb-4 uppercase tracking-wide">
+              <h3 className="text-lg font-normal text-gray-800 mb-4 tracking-wide">
                 {service.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed font-light">
                 {service.description}
               </p>
             </motion.div>

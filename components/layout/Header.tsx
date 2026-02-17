@@ -18,11 +18,11 @@ const Header = () => {
   }, [])
 
   const navLinks = [
-    { href: '/', label: 'HOME' },
-    { href: '#catalog', label: 'RICHIEDI IL CATALOGO GRATUITO' },
-    { href: '#stores', label: 'PUNTI VENDITA' },
-    { href: '#showroom', label: 'CERCA LO SHOWROOM' },
-    { href: '#blog', label: 'BLOG' },
+    { href: '/', label: 'Home' },
+    { href: '#catalog', label: 'Catalogo Gratuito' },
+    { href: '#stores', label: 'Showroom' },
+    { href: '#progetti', label: 'I Nostri Progetti' },
+    { href: '#contatti', label: 'Contatti' },
   ]
 
   return (
@@ -35,9 +35,10 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="text-2xl md:text-3xl font-bold font-heading">
-              <span className="text-primary">SCONTI</span>
-              <span className="text-secondary">CUCINE</span>
+            <div className="text-2xl md:text-3xl font-light font-heading tracking-wider">
+              <span className="text-secondary-dark">Area</span>
+              <span className="text-secondary">Living</span>
+              <span className="text-secondary-light">Design</span>
             </div>
           </Link>
 
@@ -47,7 +48,7 @@ const Header = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-semibold text-secondary hover:text-primary transition-colors duration-300 uppercase tracking-wide"
+                className="text-sm font-normal text-secondary hover:text-secondary-dark transition-colors duration-300 tracking-wide"
               >
                 {link.label}
               </Link>
@@ -73,7 +74,7 @@ const Header = () => {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm font-semibold text-secondary hover:text-primary transition-colors duration-300 uppercase tracking-wide"
+                  className="text-sm font-normal text-secondary hover:text-secondary-dark transition-colors duration-300 tracking-wide"
                 >
                   {link.label}
                 </Link>

@@ -15,33 +15,33 @@ const StoreLocator = () => {
           className="text-center"
         >
           {/* Section Header */}
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase font-heading">
-            SCOPRI LO SHOWROOM PIÙ VICINO A TE
+          <h2 className="text-4xl md:text-5xl font-light mb-6 font-heading tracking-wide">
+            Trova il Tuo Showroom
           </h2>
           
-          <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Oltre 40 mostre espositive in tutta Italia pronte ad accoglierti con 
-            un arredatore dedicato e numerose sorprese
+          <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+            Oltre 40 showroom in tutta Italia, pronti ad accoglierti con 
+            un designer dedicato e soluzioni su misura per il tuo living
           </p>
 
           {/* Features */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
             <div className="flex flex-col items-center">
-              <FaMapMarkerAlt className="text-5xl text-primary mb-4" />
-              <h3 className="text-xl font-bold mb-2">40+ Showroom</h3>
-              <p className="text-white/80">In tutta Italia</p>
+              <FaMapMarkerAlt className="text-5xl text-white/80 mb-4" />
+              <h3 className="text-xl font-normal mb-2">40+ Showroom</h3>
+              <p className="text-white/70 font-light">In tutta Italia</p>
             </div>
 
             <div className="flex flex-col items-center">
-              <FaClock className="text-5xl text-primary mb-4" />
-              <h3 className="text-xl font-bold mb-2">Aperto 7/7</h3>
-              <p className="text-white/80">Quando vuoi tu</p>
+              <FaClock className="text-5xl text-white/80 mb-4" />
+              <h3 className="text-xl font-normal mb-2">Aperti 7/7</h3>
+              <p className="text-white/70 font-light">Quando vuoi</p>
             </div>
 
             <div className="flex flex-col items-center">
-              <FaPhone className="text-5xl text-primary mb-4" />
-              <h3 className="text-xl font-bold mb-2">Prenota Ora</h3>
-              <p className="text-white/80">Consulenza gratuita</p>
+              <FaPhone className="text-5xl text-white/80 mb-4" />
+              <h3 className="text-xl font-normal mb-2">Consulenza</h3>
+              <p className="text-white/70 font-light">Gratuita e personalizzata</p>
             </div>
           </div>
 
@@ -49,22 +49,22 @@ const StoreLocator = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="#showroom"
-              className="bg-white text-secondary hover:bg-gray-100 font-bold py-4 px-10 rounded-full text-lg shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="bg-white text-secondary hover:bg-gray-100 font-normal py-4 px-10 rounded-lg text-lg shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
-              CERCA LO SHOWROOM
+              Trova Showroom
             </a>
             <a
               href="#catalog"
-              className="bg-primary hover:bg-primary-dark text-white font-bold py-4 px-10 rounded-full text-lg shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="bg-gray-800 hover:bg-gray-700 text-white font-normal py-4 px-10 rounded-lg text-lg shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
-              RICHIEDI IL CATALOGO
+              Richiedi Catalogo
             </a>
           </div>
 
           {/* Additional Info */}
           <div className="mt-12 pt-12 border-t border-white/20">
-            <p className="text-lg text-white/90">
-              🎁 Ricevi subito un <span className="text-primary font-bold">BUONO SCONTO da 1000€</span> compilando il modulo
+            <p className="text-lg text-white/90 font-light">
+              🎁 Buono sconto <span className="text-white font-semibold">1000€</span> richiedendo il catalogo
             </p>
           </div>
         </motion.div>
