@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Raleway } from 'next/font/google'
+import { Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -7,10 +7,10 @@ import ScrollToTop from '@/components/ui/ScrollToTop'
 import Analytics from '@/components/Analytics'
 import { organizationSchema, localBusinessSchema, faqSchema } from '@/lib/structured-data'
 
-const raleway = Raleway({ 
+const cormorant = Cormorant_Garamond({ 
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-raleway',
+  variable: '--font-cormorant',
   display: 'swap',
 })
 
@@ -74,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="it" className={raleway.variable}>
+    <html lang="it" className={cormorant.variable}>
       <head>
         {/* Structured Data for SEO */}
         <script

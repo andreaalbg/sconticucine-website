@@ -9,9 +9,9 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           {/* Logo and Copyright */}
           <div className="text-center md:text-left">
-            <div className="text-2xl font-light font-heading mb-2 tracking-wider">
-              <span className="text-gray-300">Area</span>
-              <span className="text-white">Living</span>
+            <div className="text-2xl font-light font-heading mb-2" style={{letterSpacing: '0.1em'}}>
+              <span className="text-gray-400">Area</span>
+              <span className="text-gray-200">Living</span>
               <span className="text-gray-400">Design</span>
             </div>
             <p className="text-sm text-gray-300">

@@ -4,12 +4,13 @@
 
 @layer base {
   :root {
-    --font-raleway: 'Raleway', system-ui, sans-serif;
+    --font-cormorant: 'Cormorant Garamond', Georgia, serif;
   }
   
   body {
     @apply bg-white text-gray-800 antialiased;
-    font-weight: 300;
+    font-weight: 400;
+    letter-spacing: 0.01em;
   }
   
   html {
@@ -27,7 +28,8 @@
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-light text-center mb-8 tracking-wide text-gray-800;
+    @apply text-3xl md:text-4xl lg:text-5xl font-light text-center mb-8 tracking-wider text-gray-800;
+    letter-spacing: 0.05em;
   }
   
   .section-subtitle {

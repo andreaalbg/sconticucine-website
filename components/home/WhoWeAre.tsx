@@ -33,8 +33,8 @@ const WhoWeAre = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="section-title text-gray-800">Chi Siamo</h2>
-          <p className="section-subtitle text-gray-600 font-light">
+          <h2 className="section-title text-secondary-dark">Chi Siamo</h2>
+          <p className="section-subtitle text-secondary font-normal">
             AreaLivingDesign è un gruppo di designer e produttori specializzati in arredamento 
             per soggiorni Made in Italy. Creiamo spazi abitativi eleganti e funzionali, 
             unendo design contemporaneo, qualità artigianale e servizio personalizzato

@@ -12,7 +12,7 @@ const slides = [
     description: 'Scopri i nostri soggiorni Made in Italy, dove eleganza e funzionalità si incontrano. Oltre 40 showroom pronti ad accoglierti con un designer dedicato al tuo progetto',
     cta: 'Esplora le Collezioni',
     image: '/images/hero-1.jpg',
-    bgGradient: 'from-white/75 to-primary/20',
+    bgGradient: 'from-white/80 to-accent/60',
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const slides = [
     description: 'Crea il soggiorno dei tuoi sogni con i nostri arredi personalizzabili. Design italiano, materiali di alta qualità e attenzione ai dettagli in ogni elemento',
     cta: 'Scopri di Più',
     image: '/images/hero-2.jpg',
-    bgGradient: 'from-accent/40 to-white/80',
+    bgGradient: 'from-primary/30 to-white/85',
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const slides = [
     description: 'Soggiorni che riflettono il tuo stile di vita. Dal minimalismo moderno al comfort elegante, trova la soluzione perfetta per il tuo spazio abitativo',
     cta: 'Richiedi Consulenza',
     image: '/images/hero-3.jpg',
-    bgGradient: 'from-primary/25 to-accent/35',
+    bgGradient: 'from-accent/50 to-primary/40',
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const slides = [
     description: "Richiedi il catalogo gratuito e ricevi subito un buono sconto di 1000€ per l'acquisto del tuo nuovo soggiorno. Progettazione gratuita inclusa",
     cta: 'Richiedi Ora',
     image: '/images/hero-1.jpg',
-    bgGradient: 'from-white/80 to-primary/15',
+    bgGradient: 'from-accent-light/70 to-primary/25',
   },
 ]
 
@@ -87,10 +87,10 @@ const HeroCarousel = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="max-w-4xl"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-gray-800 mb-6 leading-tight font-heading tracking-wide">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-secondary-dark mb-6 leading-tight font-heading tracking-wider">
                 {slides[currentSlide].title}
               </h1>
-              <p className="text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 max-w-3xl leading-relaxed font-light">
+              <p className="text-lg md:text-xl lg:text-2xl text-secondary mb-8 max-w-3xl leading-relaxed font-normal">
                 {slides[currentSlide].description}
               </p>
               <Link href="#catalog">
@@ -124,7 +124,7 @@ const HeroCarousel = () => {
       </div>
 
       {/* Slide Counter */}
-      <div className="absolute bottom-8 right-8 text-gray-700 font-light text-lg z-10">
+      <div className="absolute bottom-8 right-8 text-secondary font-light text-lg z-10">
         <span className="text-2xl">{currentSlide + 1}</span> / {slides.length}
       </div>
     </section>
