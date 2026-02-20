@@ -10,19 +10,19 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#a8b89d',
-          dark: '#8fa584',
-          light: '#c3ceb8',
+          DEFAULT: '#8a9d77',
+          dark: '#7a8d67',
+          light: '#9caf88',
         },
         secondary: {
-          DEFAULT: '#7a8a6f',
-          dark: '#5f6e55',
-          light: '#98a88d',
+          DEFAULT: '#6B655B',
+          dark: '#5a5550',
+          light: '#8a8478',
         },
         accent: {
-          DEFAULT: '#e8ebe5',
-          dark: '#d4d9cf',
-          light: '#f5f7f3',
+          DEFAULT: '#a8b89d',
+          dark: '#98a88d',
+          light: '#c3ceb8',
         },
         sage: {
           DEFAULT: '#b4c4a8',
@@ -31,7 +31,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-cormorant)', 'Georgia', 'serif'],
+        sans: ['var(--font-manrope)', 'system-ui', 'sans-serif'],
         heading: ['var(--font-cormorant)', 'Georgia', 'serif'],
       },
       container: {

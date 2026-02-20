@@ -87,17 +87,18 @@ const HeroCarousel = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="max-w-4xl"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-secondary-dark mb-6 leading-tight font-heading tracking-wider">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-secondary-dark mb-6 leading-tight tracking-wide" style={{fontFamily: 'var(--font-cormorant)'}}>
                 {slides[currentSlide].title}
               </h1>
-              <p className="text-lg md:text-xl lg:text-2xl text-secondary mb-8 max-w-3xl leading-relaxed font-normal">
+              <p className="text-lg md:text-xl lg:text-2xl text-secondary mb-8 max-w-3xl leading-relaxed font-light" style={{fontFamily: 'var(--font-manrope)'}}>
                 {slides[currentSlide].description}
               </p>
               <Link href="#catalog">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-secondary text-white hover:bg-secondary-dark font-normal py-4 px-10 rounded-lg text-lg shadow-lg transition-all duration-300"
+                  className="bg-primary text-white hover:bg-primary-dark font-normal py-4 px-10 rounded-lg text-lg shadow-lg transition-all duration-300"
+                  style={{fontFamily: 'var(--font-manrope)', letterSpacing: '0.05em'}}
                 >
                   {slides[currentSlide].cta}
                 </motion.button>
