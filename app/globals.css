@@ -5,6 +5,14 @@
 @layer base {
   :root {
     --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+    --font-manrope: 'Manrope', system-ui, sans-serif;
+    
+    /* Sanctuary colors */
+    --c-bg-base: #6B655B;
+    --c-bg-overlay: rgba(107, 101, 91, 0.85);
+    --c-text-main: #ffffff;
+    --c-text-muted: rgba(255, 255, 255, 0.7);
+    --ease-fluid: cubic-bezier(0.25, 1, 0.5, 1);
   }
   
   body {

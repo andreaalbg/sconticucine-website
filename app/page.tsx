@@ -1,23 +1,23 @@
-import HeroCarousel from '@/components/home/HeroCarousel'
-import WhoWeAre from '@/components/home/WhoWeAre'
-import ProductShowcase from '@/components/home/ProductShowcase'
-import CatalogForm from '@/components/home/CatalogForm'
-import ServicesGrid from '@/components/home/ServicesGrid'
-import Testimonials from '@/components/home/Testimonials'
-import StoreLocator from '@/components/home/StoreLocator'
+import BackgroundLayers from '@/components/sanctuary/BackgroundLayers'
+import CustomCursor from '@/components/sanctuary/CustomCursor'
+import SanctuaryHeader from '@/components/sanctuary/SanctuaryHeader'
+import InteractionButton from '@/components/sanctuary/InteractionButton'
 
 export default function Home() {
   return (
-    <>
-      <HeroCarousel />
-      <WhoWeAre />
-      <ProductShowcase />
-      <CatalogForm />
-      <ServicesGrid />
-      <Testimonials />
-      <StoreLocator />
-      <CatalogForm variant="bottom" />
-    </>
+    <div className="sanctuary-page">
+      <BackgroundLayers />
+      
+      <div className="ui-layer">
+        <SanctuaryHeader />
+        <InteractionButton />
+        
+        <div className="coords">
+          41.9028° N, 12.4964° E
+        </div>
+      </div>
+
+      <CustomCursor />
+    </div>
   )
 }
-
