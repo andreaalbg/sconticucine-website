@@ -1,61 +1,60 @@
 import type { Metadata } from 'next'
-import { Inter, Poppins } from 'next/font/google'
+import { DM_Sans, Playfair_Display } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
-import ScrollToTop from '@/components/ui/ScrollToTop'
 import Analytics from '@/components/Analytics'
-import { organizationSchema, localBusinessSchema, faqSchema } from '@/lib/structured-data'
 
-const inter = Inter({ 
+const dmSans = DM_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-dm-sans',
+  weight: ['400', '500', '700'],
   display: 'swap',
 })
 
-const poppins = Poppins({ 
+const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-poppins',
+  variable: '--font-playfair',
+  weight: ['500', '600', '700'],
   display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'Sconti Cucine - Cucine Made in Italy a Prezzi Scontati | Oltre 40 Showroom in Italia',
-  description: 'Scopri le migliori cucine Made in Italy a prezzi scontati. Oltre 40 showroom in tutta Italia, arredatore dedicato, buono sconto da 1000€, trasporto e montaggio inclusi. Qualità italiana accessibile a tutti.',
-  keywords: ['cucine', 'cucine italiane', 'cucine scontate', 'cucine made in italy', 'arredamento cucina', 'showroom cucine', 'cucine moderne', 'cucine rustiche', 'cucine shabby chic'],
-  authors: [{ name: 'Sconti Cucine' }],
-  creator: 'Sconti Cucine',
-  publisher: 'Sconti Cucine',
+  title: 'Mariven Hotel & Suites',
+  description:
+    'Discover refined coastal luxury at Mariven Hotel & Suites. Oceanfront rooms, curated dining, and unforgettable seaside experiences.',
+  keywords: ['luxury hotel', 'oceanfront resort', 'boutique suites', 'coastal retreat', 'mariven'],
+  authors: [{ name: 'Mariven Hotel & Suites' }],
+  creator: 'Mariven Hotel & Suites',
+  publisher: 'Mariven Hotel & Suites',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://www.sconticucine.it'),
+  metadataBase: new URL('https://www.marivenhotel.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Sconti Cucine - Cucine Made in Italy a Prezzi Scontati',
-    description: 'Oltre 40 showroom in Italia. Cucine prestigiose Made in Italy a prezzi da ingrosso. Arredatore dedicato, buono sconto 1000€, trasporto incluso.',
-    url: 'https://www.sconticucine.it',
-    siteName: 'Sconti Cucine',
-    locale: 'it_IT',
+    title: 'Mariven Hotel & Suites',
+    description:
+      'Escape to an editorially styled oceanfront resort with elegant suites, tailored experiences, and Mediterranean-inspired hospitality.',
+    url: 'https://www.marivenhotel.com',
+    siteName: 'Mariven Hotel & Suites',
+    locale: 'en_US',
     type: 'website',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Sconti Cucine - Cucine Made in Italy',
+        alt: 'Mariven Hotel & Suites',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sconti Cucine - Cucine Made in Italy a Prezzi Scontati',
-    description: 'Oltre 40 showroom in Italia. Cucine prestigiose Made in Italy a prezzi accessibili.',
+    title: 'Mariven Hotel & Suites',
+    description: 'A refined oceanfront retreat with elegant rooms, curated amenities, and timeless coastal style.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -69,9 +68,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
 }
 
 export default function RootLayout({
@@ -80,28 +76,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="it" className={`${inter.variable} ${poppins.variable}`}>
-      <head>
-        {/* Structured Data for SEO */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-      </head>
+    <html lang="en" className={`${dmSans.variable} ${playfairDisplay.variable}`}>
       <body className="font-sans">
         <Analytics />
-        <Header />
         <main>{children}</main>
-        <Footer />
-        <ScrollToTop />
       </body>
     </html>
   )

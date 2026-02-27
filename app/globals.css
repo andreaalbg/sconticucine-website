@@ -4,50 +4,80 @@
 
 @layer base {
   :root {
-    --font-inter: 'Inter', system-ui, sans-serif;
-    --font-poppins: 'Poppins', system-ui, sans-serif;
+    --bg-dark: #1a1a1a;
+    --bg-deep: #0d0d0d;
+    --sand: #e8dfd5;
+    --cream: #f5f0ea;
+    --beige: #d4c8b8;
+    --ocean: #2a7a6e;
+    --ocean-deep: #1d6b60;
+    --gold: #c4a87a;
+    --text-dark: #1a1a1a;
+    --text-light: #f5f0ea;
   }
-  
-  body {
-    @apply bg-white text-gray-900 antialiased;
-  }
-  
+
   html {
     scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-dm-sans), system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a,
+  button {
+    cursor: pointer;
   }
 }
 
 @layer components {
-  .btn-primary {
-    @apply bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  .section-space {
+    padding-top: 6.5rem;
+    padding-bottom: 6.5rem;
   }
-  
-  .btn-secondary {
-    @apply bg-secondary hover:bg-secondary-dark text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ocean);
+    font-weight: 500;
   }
-  
-  .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 uppercase tracking-tight;
+
+  .luxury-button {
+    transition: all 0.3s ease;
   }
-  
-  .section-subtitle {
-    @apply text-lg md:text-xl text-center text-gray-600 max-w-3xl mx-auto mb-12;
+
+  .bento-card,
+  .room-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
-  
-  .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+
+  .bento-card:hover,
+  .room-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.14);
   }
-  
-  .card {
-    @apply bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1;
+
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(32px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
   }
-  
-  .input-field {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all;
-  }
-  
-  .discount-badge {
-    @apply absolute top-4 right-4 bg-primary text-white font-bold text-2xl py-3 px-6 rounded-full shadow-lg z-10;
+
+  .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -55,13 +85,23 @@
   .text-balance {
     text-wrap: balance;
   }
-  
-  .animation-delay-200 {
-    animation-delay: 200ms;
+}
+
+@media (max-width: 768px) {
+  .section-space {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
-  
-  .animation-delay-400 {
-    animation-delay: 400ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
