@@ -6,7 +6,7 @@
   :root {
     --font-cormorant: 'Cormorant Garamond', Georgia, serif;
     --font-manrope: 'Manrope', system-ui, sans-serif;
-    
+
     /* Sanctuary colors */
     --c-bg-base: #6B655B;
     --c-bg-overlay: rgba(107, 101, 91, 0.85);
@@ -14,16 +14,21 @@
     --c-text-muted: rgba(255, 255, 255, 0.7);
     --ease-fluid: cubic-bezier(0.25, 1, 0.5, 1);
   }
-  
+
   body {
     @apply bg-white text-gray-800 antialiased;
     font-weight: 400;
     letter-spacing: 0.01em;
     font-family: var(--font-manrope);
   }
-  
+
   html {
     scroll-behavior: smooth;
+  }
+
+  a,
+  button {
+    cursor: pointer;
   }
 }
 
@@ -33,43 +38,51 @@
     font-family: var(--font-manrope);
     letter-spacing: 0.05em;
   }
-  
+
   .btn-secondary {
     @apply bg-secondary hover:bg-secondary-dark text-white font-normal py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
     font-family: var(--font-manrope);
     letter-spacing: 0.05em;
   }
-  
+
   .section-title {
     @apply text-3xl md:text-4xl lg:text-5xl font-light text-center mb-8 text-secondary-dark;
     font-family: var(--font-cormorant);
     letter-spacing: 0.02em;
   }
-  
+
   .section-subtitle {
     @apply text-lg md:text-xl text-center text-gray-600 max-w-3xl mx-auto mb-12;
     font-family: var(--font-manrope);
     font-weight: 300;
   }
-  
-  .section-subtitle {
-    @apply text-lg md:text-xl text-center text-gray-600 max-w-3xl mx-auto mb-12;
+
+  .bento-card,
+  .room-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
-  
-  .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+
+  .bento-card:hover,
+  .room-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.14);
   }
-  
-  .card {
-    @apply bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1;
+
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(32px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
   }
-  
-  .input-field {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all;
-  }
-  
-  .discount-badge {
-    @apply absolute top-4 right-4 bg-primary text-white font-bold text-2xl py-3 px-6 rounded-full shadow-lg z-10;
+
+  .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -77,13 +90,23 @@
   .text-balance {
     text-wrap: balance;
   }
-  
-  .animation-delay-200 {
-    animation-delay: 200ms;
+}
+
+@media (max-width: 768px) {
+  .section-space {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
-  
-  .animation-delay-400 {
-    animation-delay: 400ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

@@ -1,13 +1,10 @@
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, Manrope } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
-import ScrollToTop from '@/components/ui/ScrollToTop'
 import Analytics from '@/components/Analytics'
 import { organizationSchema, localBusinessSchema, faqSchema } from '@/lib/structured-data'
 
-const cormorant = Cormorant_Garamond({ 
+const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-cormorant',
@@ -70,9 +67,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
 }
 
 export default function RootLayout({
@@ -99,12 +93,8 @@ export default function RootLayout({
       </head>
       <body className="font-sans">
         <Analytics />
-        <Header />
         <main>{children}</main>
-        <Footer />
-        <ScrollToTop />
       </body>
     </html>
   )
 }
-
