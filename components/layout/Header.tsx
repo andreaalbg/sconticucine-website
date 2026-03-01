@@ -21,7 +21,7 @@ const Header = () => {
     { href: '/', label: 'Home' },
     { href: '#catalog', label: 'Catalogo Gratuito' },
     { href: '#stores', label: 'Showroom' },
-    { href: '#progetti', label: 'I Nostri Progetti' },
+    { href: '#cucine', label: 'Le Nostre Cucine' },
     { href: '#contatti', label: 'Contatti' },
   ]
 
@@ -33,16 +33,13 @@ const Header = () => {
     >
       <div className="container-custom">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="text-2xl md:text-3xl font-light tracking-wide" style={{fontFamily: 'var(--font-cormorant)', letterSpacing: '0.05em'}}>
-              <span className="text-secondary-dark">Area</span>
-              <span className="text-primary">Living</span>
-              <span className="text-secondary-light">Design</span>
+              <span className="text-secondary-dark">Sconti</span>
+              <span className="text-primary">Cucine</span>
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
@@ -55,7 +52,6 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden text-2xl text-secondary hover:text-primary transition-colors"
@@ -65,7 +61,6 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <nav className="lg:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
             <div className="flex flex-col space-y-4">
@@ -88,4 +83,3 @@ const Header = () => {
 }
 
 export default Header
-

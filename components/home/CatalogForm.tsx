@@ -18,9 +18,8 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
     console.log('Form submitted:', formData)
-    alert("Grazie! Riceverai il catalogo e il buono sconto all'indirizzo email fornito.")
+    alert("Grazie! Riceverai il catalogo e l'extra sconto all'indirizzo email fornito.")
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +32,7 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
 
   const title = variant === 'top' 
     ? 'Richiedi il Catalogo Gratuito'
-    : 'Progettazione Gratuita del Tuo Soggiorno'
+    : 'Progettazione Gratuita della Tua Cucina'
 
   return (
     <section id="catalog" className={`py-20 ${variant === 'top' ? 'bg-gray-50' : 'bg-primary/5'}`}>
@@ -45,10 +44,8 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto"
         >
-          {/* Section Header */}
           <h2 className="section-title text-gray-800 mb-12">{title}</h2>
 
-          {/* Form */}
           <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
@@ -116,7 +113,6 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
               </div>
             </div>
 
-            {/* Privacy Checkbox */}
             <div className="mb-8">
               <label className="flex items-start space-x-3 cursor-pointer">
                 <input
@@ -133,7 +129,6 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
               </label>
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               className="w-full btn-primary text-lg py-4"
@@ -146,7 +141,6 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
             </p>
           </form>
 
-          {/* Additional Info */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -155,8 +149,8 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
             className="text-center mt-8"
           >
             <p className="text-lg text-gray-600 font-light">
-              📦 Catalogo completo via email<br />
-              🎁 Buono sconto da <span className="text-sage-dark font-semibold">1000€</span> incluso
+              Catalogo completo via email<br />
+              Extra sconto fino a <span className="text-sage-dark font-semibold">5.000€</span> incluso
             </p>
           </motion.div>
         </motion.div>
@@ -166,4 +160,3 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
 }
 
 export default CatalogForm
-

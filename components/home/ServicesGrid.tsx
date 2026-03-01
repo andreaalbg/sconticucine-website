@@ -1,23 +1,23 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaFlag, FaGift, FaBolt, FaClock, FaCalendarCheck, FaShieldAlt } from 'react-icons/fa'
+import { FaFlag, FaGift, FaBolt, FaClock, FaCalendarCheck, FaShieldAlt, FaLeaf, FaCertificate } from 'react-icons/fa'
 
 const services = [
   {
     icon: FaFlag,
     title: 'Made in Italy',
-    description: 'Design e produzione italiana. Ogni pezzo è realizzato con cura artigianale da maestranze specializzate, garantendo qualità e stile inconfondibile.',
+    description: 'Design e produzione italiana. Ogni cucina è realizzata con cura artigianale da maestranze specializzate, garantendo qualità e stile inconfondibile.',
   },
   {
     icon: FaGift,
-    title: 'Buono Sconto 1000€',
-    description: 'Richiedi il catalogo gratuito e ricevi immediatamente un buono sconto di 1000€ per l\'acquisto del tuo nuovo soggiorno.',
+    title: 'Extra Sconto fino a 5.000€',
+    description: 'Richiedi il catalogo gratuito e ricevi immediatamente un extra sconto fino a 5.000€ per l\'acquisto della tua nuova cucina.',
   },
   {
     icon: FaBolt,
     title: 'Progettazione 3D',
-    description: 'Visualizza il tuo soggiorno prima di acquistarlo. Offriamo progettazione 3D gratuita per aiutarti a immaginare il risultato finale.',
+    description: 'Visualizza la tua cucina prima di acquistarla. Offriamo progettazione 3D gratuita per aiutarti a immaginare il risultato finale nel tuo ambiente.',
   },
   {
     icon: FaClock,
@@ -32,7 +32,17 @@ const services = [
   {
     icon: FaShieldAlt,
     title: 'Garanzia 5 Anni',
-    description: "Tutti i nostri soggiorni sono coperti da garanzia completa di 5 anni. Acquista con la massima tranquillità e sicurezza.",
+    description: 'Tutte le nostre cucine sono coperte da garanzia completa di 5 anni. Acquista con la massima tranquillità e sicurezza.',
+  },
+  {
+    icon: FaLeaf,
+    title: 'Impegno Ecologico',
+    description: 'Sono molte le azioni che mettiamo in campo ogni giorno per tutelare l\'ambiente e il tuo benessere, dai materiali eco-friendly ai processi sostenibili.',
+  },
+  {
+    icon: FaCertificate,
+    title: 'Certificazione ISO 9001',
+    description: 'Abbiamo ottenuto la certificazione di qualità ISO 9001, garanzia di processi e standard elevati in ogni fase della produzione.',
   },
 ]
 
@@ -40,7 +50,6 @@ const ServicesGrid = () => {
   return (
     <section className="py-20 bg-white">
       <div className="container-custom">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -51,8 +60,7 @@ const ServicesGrid = () => {
           <h2 className="section-title text-gray-800">I Nostri Servizi</h2>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -80,4 +88,3 @@ const ServicesGrid = () => {
 }
 
 export default ServicesGrid
-

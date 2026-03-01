@@ -19,26 +19,26 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
-  title: 'AreaLivingDesign - Soggiorni Moderni Made in Italy | Design Elegante e Raffinato',
-  description: 'Scopri i migliori soggiorni moderni Made in Italy. Oltre 40 showroom in tutta Italia, designer dedicato, buono sconto da 1000€, trasporto e montaggio inclusi. Design contemporaneo per il tuo living.',
-  keywords: ['soggiorni', 'living room', 'soggiorni moderni', 'arredamento soggiorno', 'design italiano', 'showroom soggiorni', 'mobili soggiorno', 'living design', 'arredamento moderno'],
-  authors: [{ name: 'AreaLivingDesign' }],
-  creator: 'AreaLivingDesign',
-  publisher: 'AreaLivingDesign',
+  title: 'Sconti Cucine - Cucine di Qualità Made in Italy | Oltre 40 Showroom',
+  description: 'Scopri le migliori cucine Made in Italy a prezzi scontati. Oltre 40 showroom in tutta Italia, progettazione 3D gratuita, extra sconto fino a 5.000€, trasporto e montaggio inclusi.',
+  keywords: ['cucine', 'cucine moderne', 'cucine classiche', 'cucine su misura', 'cucine componibili', 'arredamento cucina', 'cucine made in italy', 'showroom cucine', 'sconti cucine'],
+  authors: [{ name: 'Sconti Cucine' }],
+  creator: 'Sconti Cucine',
+  publisher: 'Sconti Cucine',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://www.arealivingdesign.it'),
+  metadataBase: new URL('https://www.sconticucine.it'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'AreaLivingDesign - Soggiorni Moderni Made in Italy',
-    description: 'Oltre 40 showroom in Italia. Soggiorni eleganti Made in Italy con design contemporaneo. Designer dedicato, buono sconto 1000€, trasporto incluso.',
-    url: 'https://www.arealivingdesign.it',
-    siteName: 'AreaLivingDesign',
+    title: 'Sconti Cucine - Cucine di Qualità Made in Italy',
+    description: 'Oltre 40 showroom in Italia. Cucine prestigiose Made in Italy con extra sconto fino a 5.000€. Progettazione 3D gratuita, trasporto e montaggio inclusi.',
+    url: 'https://www.sconticucine.it',
+    siteName: 'Sconti Cucine',
     locale: 'it_IT',
     type: 'website',
     images: [
@@ -46,14 +46,14 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'AreaLivingDesign - Soggiorni Made in Italy',
+        alt: 'Sconti Cucine - Cucine Made in Italy',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AreaLivingDesign - Soggiorni Moderni Made in Italy',
-    description: 'Oltre 40 showroom in Italia. Soggiorni eleganti Made in Italy con design raffinato.',
+    title: 'Sconti Cucine - Cucine di Qualità Made in Italy',
+    description: 'Oltre 40 showroom in Italia. Cucine Made in Italy con extra sconto fino a 5.000€.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -77,7 +77,6 @@ export default function RootLayout({
   return (
     <html lang="it" className={`${cormorant.variable} ${manrope.variable}`}>
       <head>
-        {/* Structured Data for SEO */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}

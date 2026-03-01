@@ -1,12 +1,10 @@
-// Structured data for SEO (JSON-LD)
-
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Sconti Cucine',
   url: 'https://www.sconticucine.it',
   logo: 'https://www.sconticucine.it/logo.png',
-  description: 'Cucine Made in Italy a prezzi scontati. Oltre 40 showroom in tutta Italia.',
+  description: 'Cucine di qualità Made in Italy. Oltre 40 showroom in tutta Italia con extra sconto fino a 5.000€.',
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'IT',
@@ -16,9 +14,7 @@ export const organizationSchema = {
     contactType: 'customer service',
     availableLanguage: ['Italian'],
   },
-  sameAs: [
-    // Add social media profiles here
-  ],
+  sameAs: [],
 }
 
 export const localBusinessSchema = {
@@ -28,7 +24,7 @@ export const localBusinessSchema = {
   image: 'https://www.sconticucine.it/og-image.jpg',
   '@id': 'https://www.sconticucine.it',
   url: 'https://www.sconticucine.it',
-  telephone: '+39-xxx-xxx-xxxx',
+  telephone: '+39 02 1234 5678',
   priceRange: '€€',
   address: {
     '@type': 'PostalAddress',
@@ -63,7 +59,7 @@ export const productSchema = {
   '@context': 'https://schema.org',
   '@type': 'Product',
   name: 'Cucine Made in Italy',
-  description: 'Cucine prestigiose Made in Italy a prezzi scontati',
+  description: 'Cucine di qualità Made in Italy a prezzi scontati. Design contemporaneo, materiali premium e lavorazione artigianale.',
   brand: {
     '@type': 'Brand',
     name: 'Sconti Cucine',
@@ -86,7 +82,7 @@ export const faqSchema = {
       name: 'Quanto costa una cucina da Sconti Cucine?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le nostre cucine Made in Italy partono da prezzi molto competitivi grazie ai nostri sconti fino al 45%. Offriamo anche un buono sconto di 1000€ per tutti i nuovi clienti.',
+        text: 'Le nostre cucine Made in Italy partono da prezzi molto competitivi grazie ai nostri sconti fino al 45%. Offriamo anche un extra sconto fino a 5.000€ per tutti i nuovi clienti che richiedono il catalogo.',
       },
     },
     {
@@ -94,7 +90,7 @@ export const faqSchema = {
       name: 'Il trasporto e montaggio sono inclusi?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Sì, il trasporto e il montaggio della tua nuova cucina sono completamente inclusi nel prezzo. Inoltre, ci occupiamo anche dello smaltimento della tua vecchia cucina.',
+        text: 'Sì, il trasporto e il montaggio della tua nuova cucina sono completamente inclusi nel prezzo. Inoltre, ci occupiamo anche del ritiro e smaltimento della tua vecchia cucina.',
       },
     },
     {
@@ -102,7 +98,7 @@ export const faqSchema = {
       name: 'Quanti showroom avete in Italia?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Abbiamo oltre 40 mostre espositive in tutta Italia, aperte 7 giorni su 7 per offrirti la massima flessibilità.',
+        text: 'Abbiamo oltre 40 showroom distribuiti in tutta Italia, aperti 7 giorni su 7 per offrirti la massima flessibilità. Prenota una consulenza gratuita nel punto vendita più vicino a te.',
       },
     },
     {
@@ -110,9 +106,16 @@ export const faqSchema = {
       name: 'Che garanzia offrite?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Tutte le nostre cucine sono garantite 5 anni senza spese aggiuntive, per darti la massima serenità nel tuo acquisto.',
+        text: 'Tutte le nostre cucine sono garantite 5 anni senza spese aggiuntive. Inoltre, siamo certificati ISO 9001, garanzia di processi e standard elevati.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Offrite la progettazione 3D?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sì, offriamo progettazione 3D completamente gratuita. Un nostro designer dedicato creerà un rendering realistico della tua cucina nel tuo ambiente, per aiutarti a visualizzare il risultato finale prima dell\'acquisto.',
       },
     },
   ],
 }
-

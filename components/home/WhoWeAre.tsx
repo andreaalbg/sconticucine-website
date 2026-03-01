@@ -7,17 +7,17 @@ const features = [
   {
     icon: FaUserTie,
     title: 'Designer Dedicato',
-    description: 'Un designer professionista dedicato al tuo progetto ti seguirà in ogni fase, dalla progettazione 3D alla realizzazione finale del tuo soggiorno su misura.',
+    description: 'Un designer professionista dedicato al tuo progetto ti seguirà in ogni fase, dalla progettazione 3D alla realizzazione finale della tua cucina su misura.',
   },
   {
     icon: FaTag,
-    title: 'Offerta Speciale',
-    description: 'Buono sconto di 1000€ per il tuo nuovo soggiorno. Include 5 anni di garanzia completa e assistenza post-vendita personalizzata.',
+    title: 'Extra Sconto fino a 5.000€',
+    description: 'Richiedi il catalogo gratuito e ricevi un extra sconto fino a 5.000€ sulla tua nuova cucina. Finanziamento a interessi zero e garanzia 5 anni inclusa.',
   },
   {
     icon: FaTruck,
     title: 'Servizio Completo',
-    description: 'Trasporto e installazione professionale inclusi nel prezzo. Ci occupiamo di tutto, dalla consegna al montaggio, con massima cura e attenzione.',
+    description: 'Trasporto, montaggio e ritiro dell\'usato inclusi nel prezzo. Ci occupiamo di tutto, dalla consegna all\'installazione, con massima cura e attenzione.',
   },
 ]
 
@@ -25,7 +25,6 @@ const WhoWeAre = () => {
   return (
     <section className="py-20 bg-gray-50">
       <div className="container-custom">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,13 +34,12 @@ const WhoWeAre = () => {
         >
           <h2 className="section-title">Chi Siamo</h2>
           <p className="section-subtitle">
-            AreaLivingDesign è un gruppo di designer e produttori specializzati in arredamento 
-            per soggiorni Made in Italy. Creiamo spazi abitativi eleganti e funzionali, 
-            unendo design contemporaneo, qualità artigianale e servizio personalizzato
+            Sconti Cucine è il punto di riferimento per chi cerca cucine di qualità Made in Italy 
+            a prezzi accessibili. Selezioniamo le migliori materie prime e ti accompagniamo nella scelta 
+            della cucina perfetta con consulenza personalizzata e servizi pensati per te
           </p>
         </motion.div>
 
-        {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {features.map((feature, index) => (
             <motion.div
@@ -70,4 +68,3 @@ const WhoWeAre = () => {
 }
 
 export default WhoWeAre
-

@@ -14,17 +14,15 @@ const StoreLocator = () => {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          {/* Section Header */}
           <h2 className="text-4xl md:text-5xl font-light mb-6 font-heading tracking-wide">
-            Trova il Tuo Showroom
+            Vieni a Trovarci
           </h2>
           
           <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
-            Oltre 40 showroom in tutta Italia, pronti ad accoglierti con 
-            un designer dedicato e soluzioni su misura per il tuo living
+            Oltre 40 showroom distribuiti in tutta Italia, pronti ad accoglierti con 
+            consulenti esperti e un&apos;ampia esposizione di cucine
           </p>
 
-          {/* Features */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
             <div className="flex flex-col items-center">
               <FaMapMarkerAlt className="text-5xl text-white/80 mb-4" />
@@ -45,7 +43,6 @@ const StoreLocator = () => {
             </div>
           </div>
 
-          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="#showroom"
@@ -61,10 +58,9 @@ const StoreLocator = () => {
             </a>
           </div>
 
-          {/* Additional Info */}
           <div className="mt-12 pt-12 border-t border-white/20">
             <p className="text-lg text-white/90 font-light">
-              🎁 Buono sconto <span className="text-sage-light font-semibold">1000€</span> richiedendo il catalogo
+              Extra sconto fino a <span className="text-sage-light font-semibold">5.000€</span> richiedendo il catalogo
             </p>
           </div>
         </motion.div>
@@ -74,4 +70,3 @@ const StoreLocator = () => {
 }
 
 export default StoreLocator
-

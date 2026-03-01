@@ -2,13 +2,13 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Sconti Cucine - Cucine Made in Italy',
+    name: 'Sconti Cucine - Cucine di Qualità Made in Italy',
     short_name: 'ScontiCucine',
-    description: 'Cucine prestigiose Made in Italy a prezzi scontati. Oltre 40 showroom in Italia.',
+    description: 'Cucine di qualità Made in Italy. Oltre 40 showroom in Italia con extra sconto fino a 5.000€.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#ffffff',
-    theme_color: '#d4282a',
+    background_color: '#f5f0ea',
+    theme_color: '#1a1a1a',
     icons: [
       {
         src: '/icon-192.png',
@@ -23,4 +23,3 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
   }
 }
-

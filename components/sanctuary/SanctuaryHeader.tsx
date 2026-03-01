@@ -9,7 +9,7 @@ export default function SanctuaryHeader() {
   return (
     <header className="header-top">
       <Link href="/" className="nav-text brand">
-        AreaLiving
+        ScontiCucine
       </Link>
       <div style={{ display: 'flex', gap: '3rem' }}>
         <Link href="/catalogo" className="nav-text">

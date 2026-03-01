@@ -6,14 +6,23 @@ import { FaStar, FaQuoteLeft } from 'react-icons/fa'
 const testimonials = [
   {
     id: 1,
-    name: 'Marco Rossi',
-    text: 'Soggiorno straordinario! La qualità dei materiali e l\'attenzione ai dettagli sono evidenti. Il designer ci ha seguito passo dopo passo, creando uno spazio che rispecchia perfettamente il nostro stile di vita. Montaggio impeccabile.',
+    name: 'Francesca Bianchi',
+    city: 'Milano',
+    text: 'Esperienza fantastica! Il consulente è stato pazientissimo e mi ha aiutata a trovare la cucina perfetta per il mio appartamento. La consegna è stata puntuale e il montaggio impeccabile. Consigliatissimo!',
     rating: 5,
   },
   {
     id: 2,
-    name: 'Laura Bianchi',
-    text: 'Esperienza eccellente dall\'inizio alla fine. Il team di AreaLivingDesign è stato professionale e disponibile. Hanno trasformato il nostro living in uno spazio elegante e funzionale. Consigliatissimo per chi cerca qualità italiana e servizio impeccabile.',
+    name: 'Marco Verdi',
+    city: 'Roma',
+    text: 'Ho apprezzato molto il servizio di rilievo misure a domicilio e la progettazione 3D. Vedere la cucina nel mio ambiente prima dell\'acquisto mi ha tolto ogni dubbio. Qualità eccellente e prezzo competitivo.',
+    rating: 5,
+  },
+  {
+    id: 3,
+    name: 'Anna Colombo',
+    city: 'Torino',
+    text: 'Terzo acquisto in questo showroom e sempre soddisfatta. Il ritiro della vecchia cucina è stato comodo e veloce. La nuova cucina è ancora più bella di come appariva nel rendering 3D. Top!',
     rating: 5,
   },
 ]
@@ -22,7 +31,6 @@ const Testimonials = () => {
   return (
     <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
       <div className="container-custom">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -30,11 +38,10 @@ const Testimonials = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="section-title text-gray-800">Cosa Dicono i Nostri Clienti</h2>
+          <h2 className="section-title text-gray-800">Cosa Dicono di Noi</h2>
         </motion.div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
@@ -44,34 +51,30 @@ const Testimonials = () => {
               transition={{ duration: 0.5, delay: index * 0.2 }}
               className="bg-white rounded-2xl shadow-xl p-8 relative"
             >
-              {/* Quote Icon */}
               <div className="absolute top-6 right-6 text-accent">
                 <FaQuoteLeft className="text-5xl" />
               </div>
 
-              {/* Rating */}
               <div className="flex space-x-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <FaStar key={i} className="text-sage text-xl" />
                 ))}
               </div>
 
-              {/* Testimonial Text */}
               <p className="text-gray-700 leading-relaxed mb-6 relative z-10 font-light">
                 {testimonial.text}
               </p>
 
-              {/* Author */}
               <div className="border-t border-gray-200 pt-4">
                 <p className="font-normal text-gray-800 text-lg">
                   {testimonial.name}
                 </p>
+                <p className="text-sm text-gray-500">{testimonial.city}</p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -92,4 +95,3 @@ const Testimonials = () => {
 }
 
 export default Testimonials
-

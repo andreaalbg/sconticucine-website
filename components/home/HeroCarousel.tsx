@@ -8,16 +8,16 @@ import Image from 'next/image'
 const slides = [
   {
     id: 1,
-    title: 'Design Contemporaneo per il Tuo Living',
-    description: 'Scopri i nostri soggiorni Made in Italy, dove eleganza e funzionalità si incontrano. Oltre 40 showroom pronti ad accoglierti con un designer dedicato al tuo progetto',
+    title: 'Cucine Made in Italy di Qualità',
+    description: 'Scopri le nostre cucine Made in Italy, dove eleganza e funzionalità si incontrano. Oltre 40 showroom pronti ad accoglierti con un designer dedicato al tuo progetto',
     cta: 'Esplora le Collezioni',
     image: '/images/hero-1.jpg',
     bgGradient: 'from-white/85 to-sage-light/50',
   },
   {
     id: 2,
-    title: 'Arredamento su Misura per Te',
-    description: 'Crea il soggiorno dei tuoi sogni con i nostri arredi personalizzabili. Design italiano, materiali di alta qualità e attenzione ai dettagli in ogni elemento',
+    title: 'La Tua Cucina Su Misura',
+    description: 'Crea la cucina dei tuoi sogni con i nostri arredi personalizzabili. Design italiano, materiali di alta qualità e attenzione ai dettagli in ogni elemento',
     cta: 'Scopri di Più',
     image: '/images/hero-2.jpg',
     bgGradient: 'from-accent/60 to-sage/30',
@@ -25,15 +25,15 @@ const slides = [
   {
     id: 3,
     title: 'Eleganza Senza Tempo',
-    description: 'Soggiorni che riflettono il tuo stile di vita. Dal minimalismo moderno al comfort elegante, trova la soluzione perfetta per il tuo spazio abitativo',
+    description: 'Cucine che riflettono il tuo stile di vita. Dal minimalismo moderno al classico ricercato, trova la soluzione perfetta per il cuore della tua casa',
     cta: 'Richiedi Consulenza',
     image: '/images/hero-3.jpg',
     bgGradient: 'from-sage-light/45 to-primary/35',
   },
   {
     id: 4,
-    title: 'Offerta Speciale: Buono Sconto 1000€',
-    description: "Richiedi il catalogo gratuito e ricevi subito un buono sconto di 1000€ per l'acquisto del tuo nuovo soggiorno. Progettazione gratuita inclusa",
+    title: 'Extra Sconto fino a 5.000€',
+    description: "Richiedi il catalogo gratuito e ricevi subito un extra sconto fino a 5.000€ per l'acquisto della tua nuova cucina. Progettazione 3D gratuita inclusa",
     cta: 'Richiedi Ora',
     image: '/images/hero-1.jpg',
     bgGradient: 'from-white/80 to-primary/30',
@@ -66,7 +66,6 @@ const HeroCarousel = () => {
           transition={{ duration: 0.7 }}
           className="absolute inset-0"
         >
-          {/* Background Image */}
           <Image
             src={slides[currentSlide].image}
             alt={slides[currentSlide].title}
@@ -76,10 +75,8 @@ const HeroCarousel = () => {
             quality={90}
           />
           
-          {/* Overlay Gradient */}
           <div className={`absolute inset-0 bg-gradient-to-br ${slides[currentSlide].bgGradient}`} />
 
-          {/* Content */}
           <div className="relative container-custom h-full flex items-center">
             <motion.div
               initial={{ y: 50, opacity: 0 }}
@@ -108,7 +105,6 @@ const HeroCarousel = () => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Navigation Dots */}
       <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-3 z-10">
         {slides.map((_, index) => (
           <button
@@ -124,7 +120,6 @@ const HeroCarousel = () => {
         ))}
       </div>
 
-      {/* Slide Counter */}
       <div className="absolute bottom-8 right-8 text-secondary font-light text-lg z-10">
         <span className="text-2xl">{currentSlide + 1}</span> / {slides.length}
       </div>
@@ -133,4 +128,3 @@ const HeroCarousel = () => {
 }
 
 export default HeroCarousel
-
