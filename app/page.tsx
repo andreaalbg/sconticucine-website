@@ -335,7 +335,7 @@ export default function Home() {
           </h2>
           <p className="mx-auto mt-5 max-w-lg text-base text-white/70">
             Materiali di prima scelta, finiture ricercate, progettazione su misura.<br />
-            Questo è il nostro standard, non l'eccezione.
+            Questo è il nostro standard, non l&apos;eccezione.
           </p>
           <a
             href="#catalogo"
