@@ -9,7 +9,7 @@ const slides = [
   {
     id: 1,
     title: 'Cucine Made in Italy di Qualità',
-    description: 'Scopri le nostre cucine Made in Italy, dove eleganza e funzionalità si incontrano. Oltre 40 showroom pronti ad accoglierti con un designer dedicato al tuo progetto',
+    description: 'Scopri le nostre cucine Made in Italy, dove eleganza e funzionalità si incontrano. Con showroom in tutta Italia pronti ad accoglierti con un designer dedicato al tuo progetto',
     cta: 'Esplora le Collezioni',
     image: '/images/hero-1.jpg',
     bgGradient: 'from-white/85 to-sage-light/50',
@@ -32,8 +32,8 @@ const slides = [
   },
   {
     id: 4,
-    title: 'Extra Sconto fino a 5.000€',
-    description: "Richiedi il catalogo gratuito e ricevi subito un extra sconto fino a 5.000€ per l'acquisto della tua nuova cucina. Progettazione 3D gratuita inclusa",
+    title: 'Extra Sconto fino a 1.000€',
+    description: "Richiedi il catalogo gratuito e ricevi subito un extra sconto fino a 1.000€ per l'acquisto della tua nuova cucina. Progettazione 3D gratuita inclusa",
     cta: 'Richiedi Ora',
     image: '/images/hero-1.jpg',
     bgGradient: 'from-white/80 to-primary/30',

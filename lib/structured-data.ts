@@ -4,7 +4,8 @@ export const organizationSchema = {
   name: 'Sconti Cucine',
   url: 'https://www.sconticucine.it',
   logo: 'https://www.sconticucine.it/logo.png',
-  description: 'Cucine di qualità Made in Italy. Oltre 40 showroom in tutta Italia con extra sconto fino a 5.000€.',
+  description:
+    'Cucine di qualità Made in Italy. Showroom in tutta Italia con extra sconto fino a 1.000€.',
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'IT',
@@ -82,7 +83,8 @@ export const faqSchema = {
       name: 'Quanto costa una cucina da Sconti Cucine?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Le nostre cucine Made in Italy partono da prezzi molto competitivi grazie ai nostri sconti fino al 45%. Offriamo anche un extra sconto fino a 5.000€ per tutti i nuovi clienti che richiedono il catalogo.',
+        text:
+          'Le nostre cucine Made in Italy partono da prezzi molto competitivi grazie ai nostri sconti fino al 45%. Offriamo anche un extra sconto fino a 1.000€ per tutti i nuovi clienti che richiedono il catalogo.',
       },
     },
     {
@@ -98,7 +100,8 @@ export const faqSchema = {
       name: 'Quanti showroom avete in Italia?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Abbiamo oltre 40 showroom distribuiti in tutta Italia, aperti 7 giorni su 7 per offrirti la massima flessibilità. Prenota una consulenza gratuita nel punto vendita più vicino a te.',
+        text:
+          'Abbiamo showroom distribuiti in tutta Italia, aperti 7 giorni su 7 per offrirti la massima flessibilità. Prenota una consulenza gratuita nel punto vendita più vicino a te.',
       },
     },
     {

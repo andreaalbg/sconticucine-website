@@ -11,8 +11,8 @@ const features = [
   },
   {
     icon: FaTag,
-    title: 'Extra Sconto fino a 5.000€',
-    description: 'Richiedi il catalogo gratuito e ricevi un extra sconto fino a 5.000€ sulla tua nuova cucina. Finanziamento a interessi zero e garanzia 5 anni inclusa.',
+    title: 'Extra Sconto fino a 1.000€',
+    description: 'Richiedi il catalogo gratuito e ricevi un extra sconto fino a 1.000€ sulla tua nuova cucina. Finanziamento a interessi zero e garanzia 5 anni inclusa.',
   },
   {
     icon: FaTruck,

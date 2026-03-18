@@ -4,7 +4,8 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Sconti Cucine - Cucine di Qualità Made in Italy',
     short_name: 'ScontiCucine',
-    description: 'Cucine di qualità Made in Italy. Oltre 40 showroom in Italia con extra sconto fino a 5.000€.',
+    description:
+      'Cucine di qualità Made in Italy. Showroom in tutta Italia con extra sconto fino a 1.000€.',
     start_url: '/',
     display: 'standalone',
     background_color: '#f5f0ea',

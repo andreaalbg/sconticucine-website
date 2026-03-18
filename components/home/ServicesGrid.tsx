@@ -11,8 +11,8 @@ const services = [
   },
   {
     icon: FaGift,
-    title: 'Extra Sconto fino a 5.000€',
-    description: 'Richiedi il catalogo gratuito e ricevi immediatamente un extra sconto fino a 5.000€ per l\'acquisto della tua nuova cucina.',
+    title: 'Extra Sconto fino a 1.000€',
+    description: 'Richiedi il catalogo gratuito e ricevi immediatamente un extra sconto fino a 1.000€ per l\'acquisto della tua nuova cucina.',
   },
   {
     icon: FaBolt,

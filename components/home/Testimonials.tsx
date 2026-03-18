@@ -83,7 +83,7 @@ const Testimonials = () => {
           className="text-center mt-12"
         >
           <a
-            href="#stores"
+            href="#showroom"
             className="inline-block bg-secondary hover:bg-secondary-dark text-white font-normal py-4 px-10 rounded-lg text-lg shadow-lg transition-all duration-300 transform hover:-translate-y-1"
           >
             Visita i Nostri Showroom

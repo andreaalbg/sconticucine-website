@@ -19,8 +19,9 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
-  title: 'Sconti Cucine - Cucine di Qualità Made in Italy | Oltre 40 Showroom',
-  description: 'Scopri le migliori cucine Made in Italy a prezzi scontati. Oltre 40 showroom in tutta Italia, progettazione 3D gratuita, extra sconto fino a 5.000€, trasporto e montaggio inclusi.',
+  title: 'Sconti Cucine - Cucine di Qualità Made in Italy | Showroom in tutta Italia',
+  description:
+    'Scopri le migliori cucine Made in Italy a prezzi scontati. Showroom in tutta Italia, progettazione 3D gratuita, extra sconto fino a 1.000€, trasporto e montaggio inclusi.',
   keywords: ['cucine', 'cucine moderne', 'cucine classiche', 'cucine su misura', 'cucine componibili', 'arredamento cucina', 'cucine made in italy', 'showroom cucine', 'sconti cucine'],
   authors: [{ name: 'Sconti Cucine' }],
   creator: 'Sconti Cucine',
@@ -36,7 +37,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Sconti Cucine - Cucine di Qualità Made in Italy',
-    description: 'Oltre 40 showroom in Italia. Cucine prestigiose Made in Italy con extra sconto fino a 5.000€. Progettazione 3D gratuita, trasporto e montaggio inclusi.',
+    description:
+      'Showroom in tutta Italia. Cucine prestigiose Made in Italy con extra sconto fino a 1.000€. Progettazione 3D gratuita, trasporto e montaggio inclusi.',
     url: 'https://www.sconticucine.it',
     siteName: 'Sconti Cucine',
     locale: 'it_IT',
@@ -53,7 +55,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Sconti Cucine - Cucine di Qualità Made in Italy',
-    description: 'Oltre 40 showroom in Italia. Cucine Made in Italy con extra sconto fino a 5.000€.',
+    description: 'Showroom in tutta Italia. Cucine Made in Italy con extra sconto fino a 1.000€.',
     images: ['/og-image.jpg'],
   },
   robots: {

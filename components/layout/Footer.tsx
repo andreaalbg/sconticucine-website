@@ -44,7 +44,7 @@ const Footer = () => {
 
         <div className="mt-6 pt-6 border-t border-gray-600 text-center">
           <p className="text-sm text-gray-400">
-            Oltre 40 showroom in tutta Italia • Cucine Made in Italy • Garanzia 5 anni
+            Showroom in tutta Italia • Cucine Made in Italy • Garanzia 5 anni
           </p>
         </div>
       </div>

@@ -42,7 +42,7 @@
    - Social proof
 
 7. **Store Locator**
-   - Call-to-action for 40+ showrooms
+   - Call-to-action per showroom in tutta Italia
    - Visual icons
    - Multiple CTA buttons
 
@@ -206,7 +206,7 @@ Easy to integrate:
 
 ## 📈 Business Features
 
-- 40+ showroom locations
+- Showroom in tutta Italia
 - Free catalog download
 - 1000€ discount voucher
 - Free design consultation

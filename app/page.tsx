@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { FaFacebookF, FaInstagram, FaPinterestP, FaStar } from 'react-icons/fa'
+import ShowroomForm from '@/components/home/ShowroomForm'
 
 // URL-encoded image paths
 const IMG = {
@@ -161,14 +162,14 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-28 pb-24 md:px-10">
           <p className="mb-5 text-[11px] uppercase tracking-[0.32em] text-[#c4a87a]">
-            Made in Italy · Oltre 40 Showroom
+            Made in Italy · Showroom in tutta Italia
           </p>
           <h1 className="font-serif text-5xl leading-[1.08] text-white md:text-7xl xl:text-8xl">
             La Cucina<br />dei Tuoi<br />Sogni
           </h1>
           <p className="mt-6 max-w-md text-base leading-relaxed text-white/75 md:text-lg">
             Progettiamo cucine su misura che rispecchiano il tuo stile.
-            Con oltre 40 showroom in Italia, siamo al tuo fianco in ogni passo.
+            Con showroom in tutta Italia, siamo al tuo fianco in ogni passo.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a
@@ -188,14 +189,18 @@ export default function Home() {
           {/* Stats strip */}
           <div className="mt-20 flex flex-wrap items-center gap-x-10 gap-y-4">
             {[
-              { num: '40+', label: 'Showroom' },
+              { num: '', label: 'Showroom in tutta Italia' },
               { num: '5', label: 'Anni Garanzia' },
               { num: '100+', label: 'Finiture' },
               { num: 'ISO', label: '9001 Certificato' },
             ].map((s, i) => (
               <div key={i} className="flex items-baseline gap-2.5">
-                <span className="font-serif text-2xl text-white">{s.num}</span>
-                <span className="text-[10px] uppercase tracking-[0.16em] text-white/55">{s.label}</span>
+                {s.num && (
+                  <span className="font-serif text-2xl text-white">{s.num}</span>
+                )}
+                <span className="text-[10px] uppercase tracking-[0.16em] text-white/55">
+                  {s.label}
+                </span>
                 {i < 3 && <span className="ml-6 hidden h-4 w-px bg-white/25 sm:block" />}
               </div>
             ))}
@@ -213,7 +218,7 @@ export default function Home() {
               Su Misura<br />è di Casa
             </h2>
             <p className="mt-6 text-base leading-relaxed text-[#555]">
-              Con oltre 40 showroom distribuiti in tutta Italia, siamo il punto di riferimento per chi
+              Con showroom distribuiti in tutta Italia, siamo il punto di riferimento per chi
               cerca cucine di qualità a prezzi accessibili. Selezioniamo le migliori materie prime e
               accompagniamo ogni cliente dalla progettazione alla consegna, con cura artigianale e
               tecnologia italiana.
@@ -222,13 +227,17 @@ export default function Home() {
             {/* Stats row */}
             <div className="mt-10 grid grid-cols-3 gap-6 border-t border-[#e8e0d6] pt-8">
               {[
-                { num: '40+', label: 'Showroom' },
+                { num: '', label: 'Showroom in Italia' },
                 { num: '5', label: 'Anni Garanzia' },
                 { num: '100+', label: 'Finiture' },
               ].map((s) => (
                 <div key={s.label}>
-                  <p className="font-serif text-3xl text-[#1a1a1a]">{s.num}</p>
-                  <p className="mt-1 text-[11px] uppercase tracking-[0.14em] text-[#999]">{s.label}</p>
+                  {s.num && (
+                    <p className="font-serif text-3xl text-[#1a1a1a]">{s.num}</p>
+                  )}
+                  <p className="mt-1 text-[11px] uppercase tracking-[0.14em] text-[#999]">
+                    {s.label}
+                  </p>
                 </div>
               ))}
             </div>
@@ -439,12 +448,12 @@ export default function Home() {
             </h2>
             <p className="mt-5 text-base leading-relaxed text-[#555]">
               Sfoglia le nostre collezioni e lasciati ispirare. Compila il modulo e ricevi subito il
-              catalogo digitale con un extra sconto esclusivo fino a <strong>5.000€</strong> su tutto l&apos;arredo.
+              catalogo digitale con un extra sconto esclusivo fino a <strong>1.000€</strong> su tutto l&apos;arredo.
             </p>
 
             <ul className="mt-8 space-y-4">
               {[
-                'Extra sconto fino a 5.000€',
+                'Extra sconto fino a 1.000€',
                 'Finanziamento a interessi zero',
                 'Rilievo misure gratuito a domicilio',
                 'Progettazione 3D inclusa',
@@ -462,7 +471,9 @@ export default function Home() {
             <div className="mt-10 relative h-[220px] overflow-hidden rounded-xl">
               <Image src={IMG.c2} alt="Cucina moderna showroom" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-              <p className="absolute bottom-4 left-5 font-serif text-lg text-white">Oltre 40 showroom in Italia</p>
+              <p className="absolute bottom-4 left-5 font-serif text-lg text-white">
+                Showroom in tutta Italia
+              </p>
             </div>
           </div>
 
@@ -555,51 +566,13 @@ export default function Home() {
             <p className="section-eyebrow">Vieni a Trovarci</p>
             <h2 className="mt-4 font-serif text-4xl md:text-5xl">I Nostri Showroom</h2>
             <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-[#555]">
-              Oltre 40 showroom distribuiti in tutta Italia, pronti ad accoglierti con consulenti
-              esperti e un&apos;ampia esposizione. Prenota la tua visita gratuita.
+              Ci trovi in molte zone d&apos;Italia! Compila il form per trovare lo showroom più
+              vicino a te.
             </p>
           </div>
 
-          <div className="reveal-on-scroll mb-12 flex flex-wrap items-center justify-center gap-12 text-center">
-            {[
-              { num: '40+', label: 'Showroom' },
-              { num: '7/7', label: 'Aperti' },
-              { num: 'Gratis', label: 'Consulenza' },
-            ].map((s, i) => (
-              <div key={i} className="flex items-center gap-8">
-                <div>
-                  <p className="font-serif text-4xl text-[#1a1a1a]">{s.num}</p>
-                  <p className="mt-1 text-[11px] uppercase tracking-[0.16em] text-[#999]">{s.label}</p>
-                </div>
-                {i < 2 && <div className="h-10 w-px bg-[#ddd]" />}
-              </div>
-            ))}
-          </div>
-
-          <div className="reveal-on-scroll grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {['Milano', 'Roma', 'Torino', 'Napoli', 'Firenze', 'Bologna', 'Udine', 'Bari'].map((city) => (
-              <div
-                key={city}
-                className="rounded-xl border border-[#e0d6ca] bg-white px-5 py-4 text-center transition-all duration-300 hover:border-[#c4a87a] hover:shadow-sm"
-              >
-                <p className="font-serif text-lg text-[#1a1a1a]">{city}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="reveal-on-scroll mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="#catalogo"
-              className="luxury-button rounded-sm border border-[#1a1a1a] bg-[#1a1a1a] px-8 py-3 text-[11px] uppercase tracking-[0.18em] text-white transition-all hover:bg-transparent hover:text-[#1a1a1a]"
-            >
-              Prenota una Visita
-            </a>
-            <a
-              href="tel:+390212345678"
-              className="luxury-button rounded-sm border border-[#1a1a1a] px-8 py-3 text-[11px] uppercase tracking-[0.18em] text-[#1a1a1a] transition-all hover:bg-[#1a1a1a] hover:text-white"
-            >
-              Chiamaci
-            </a>
+          <div className="reveal-on-scroll max-w-3xl mx-auto">
+            <ShowroomForm />
           </div>
         </div>
       </section>
@@ -607,7 +580,7 @@ export default function Home() {
       {/* ─── CTA Banner ───────────────────────────────────────── */}
       <section className="bg-[#2a7a6e] px-6 py-12 text-center text-white md:px-10">
         <p className="mx-auto max-w-xl text-base md:text-lg">
-          Richiedi il catalogo e ottieni un <strong>extra sconto fino a 5.000€</strong> su tutto l&apos;arredo
+          Richiedi il catalogo e ottieni un <strong>extra sconto fino a 1.000€</strong> su tutto l&apos;arredo
         </p>
         <a
           href="#catalogo"
@@ -623,7 +596,7 @@ export default function Home() {
           <div>
             <h3 className="font-serif text-2xl tracking-[0.22em]">SCONTI CUCINE</h3>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-[#b8aea2]">
-              Cucine di qualità Made in Italy. Con oltre 40 showroom in Italia, ti accompagniamo
+              Cucine di qualità Made in Italy. Con showroom in tutta Italia, ti accompagniamo
               nella scelta della cucina perfetta con consulenza personalizzata e progettazione 3D.
             </p>
           </div>
@@ -650,7 +623,7 @@ export default function Home() {
           <div>
             <h4 className="text-[10px] uppercase tracking-[0.26em] text-[#c4a87a]">Contatti</h4>
             <ul className="mt-4 space-y-2.5 text-sm text-[#ddd1c4]">
-              <li>40+ Showroom in tutta Italia</li>
+              <li>Showroom in tutta Italia</li>
               <li>+39 02 1234 5678</li>
               <li>info@sconticucine.it</li>
             </ul>
