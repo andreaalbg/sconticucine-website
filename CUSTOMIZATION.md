@@ -128,7 +128,7 @@ export async function POST(request: Request) {
   
   const msg = {
     to: process.env.CONTACT_EMAIL,
-    from: 'noreply@sconticucine.it',
+    from: 'noreply@ateliercucinemoderne.it',
     subject: 'Nuova richiesta catalogo',
     text: `Nome: ${data.name}\nEmail: ${data.email}\nTelefono: ${data.phone}\nCittà: ${data.city}`,
   }

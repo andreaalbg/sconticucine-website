@@ -19,28 +19,28 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
-  title: 'Sconti Cucine - Cucine di Qualità Made in Italy | Showroom in tutta Italia',
+  title: 'Atelier Cucine Moderne - Cucine di Qualità Made in Italy | Showroom in tutta Italia',
   description:
     'Scopri le migliori cucine Made in Italy a prezzi scontati. Showroom in tutta Italia, progettazione 3D gratuita, extra sconto fino a 1.000€, trasporto e montaggio inclusi.',
-  keywords: ['cucine', 'cucine moderne', 'cucine classiche', 'cucine su misura', 'cucine componibili', 'arredamento cucina', 'cucine made in italy', 'showroom cucine', 'sconti cucine'],
-  authors: [{ name: 'Sconti Cucine' }],
-  creator: 'Sconti Cucine',
-  publisher: 'Sconti Cucine',
+  keywords: ['cucine', 'cucine moderne', 'cucine classiche', 'cucine su misura', 'cucine componibili', 'arredamento cucina', 'cucine made in italy', 'showroom cucine', 'atelier cucine moderne'],
+  authors: [{ name: 'Atelier Cucine Moderne' }],
+  creator: 'Atelier Cucine Moderne',
+  publisher: 'Atelier Cucine Moderne',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://www.sconticucine.it'),
+  metadataBase: new URL('https://www.ateliercucinemoderne.it'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Sconti Cucine - Cucine di Qualità Made in Italy',
+    title: 'Atelier Cucine Moderne - Cucine di Qualità Made in Italy',
     description:
       'Showroom in tutta Italia. Cucine prestigiose Made in Italy con extra sconto fino a 1.000€. Progettazione 3D gratuita, trasporto e montaggio inclusi.',
-    url: 'https://www.sconticucine.it',
-    siteName: 'Sconti Cucine',
+    url: 'https://www.ateliercucinemoderne.it',
+    siteName: 'Atelier Cucine Moderne',
     locale: 'it_IT',
     type: 'website',
     images: [
@@ -48,13 +48,13 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Sconti Cucine - Cucine Made in Italy',
+        alt: 'Atelier Cucine Moderne - Cucine Made in Italy',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sconti Cucine - Cucine di Qualità Made in Italy',
+    title: 'Atelier Cucine Moderne - Cucine di Qualità Made in Italy',
     description: 'Showroom in tutta Italia. Cucine Made in Italy con extra sconto fino a 1.000€.',
     images: ['/og-image.jpg'],
   },

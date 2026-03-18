@@ -34,7 +34,7 @@ const WhoWeAre = () => {
         >
           <h2 className="section-title">Chi Siamo</h2>
           <p className="section-subtitle">
-            Sconti Cucine è il punto di riferimento per chi cerca cucine di qualità Made in Italy 
+            Atelier Cucine Moderne è il punto di riferimento per chi cerca cucine di qualità Made in Italy 
             a prezzi accessibili. Selezioniamo le migliori materie prime e ti accompagniamo nella scelta 
             della cucina perfetta con consulenza personalizzata e servizi pensati per te
           </p>

@@ -33,7 +33,7 @@ Add these in your Vercel project settings:
 ```
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
 NEXT_PUBLIC_GA_ID=your-google-analytics-id
-CONTACT_EMAIL=info@sconticucine.it
+CONTACT_EMAIL=info@ateliercucinemoderne.it
 ```
 
 ## 📦 Other Deployment Options
@@ -69,7 +69,7 @@ npm run build
 npm install -g pm2
 
 # Start with PM2
-pm2 start npm --name "sconticucine" -- start
+pm2 start npm --name "ateliercucinemoderne" -- start
 
 # Save PM2 config
 pm2 save

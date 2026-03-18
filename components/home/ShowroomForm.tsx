@@ -27,7 +27,9 @@ const showroomInterests = [
   'Altro',
 ]
 
-const ShowroomForm = () => {
+export type ShowroomFormVariant = 'showroom' | 'catalogo'
+
+const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant }) => {
   const [comuni, setComuni] = useState<ComuneRecord[]>([])
   const [loadingComuni, setLoadingComuni] = useState(false)
   const [loadError, setLoadError] = useState<string | null>(null)
@@ -99,34 +101,48 @@ const ShowroomForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Showroom form submitted:', formData)
-    alert(
-      'Grazie! Ti contatteremo per indicarti lo showroom più vicino alla tua zona.',
-    )
+    console.log(variant === 'catalogo' ? 'Catalogo form submitted:' : 'Showroom form submitted:', formData)
+    if (variant === 'catalogo') {
+      alert("Grazie! Riceverai il catalogo e l'extra sconto all'indirizzo email fornito.")
+    } else {
+      alert(
+        'Grazie! Ti contatteremo per indicarti lo showroom più vicino alla tua zona.',
+      )
+    }
   }
+
+  const isCatalogo = variant === 'catalogo'
+  const formId = isCatalogo ? 'catalogo-form' : 'showroom-form'
 
   return (
     <form
+      id={formId}
       onSubmit={handleSubmit}
-      className="mt-10 rounded-2xl border border-[#e0d6ca] bg-white p-8 md:p-10 shadow-xl"
+      className={`rounded-2xl border p-8 md:p-10 ${
+        isCatalogo
+          ? 'border-[#e8e0d6] bg-[#faf7f4]'
+          : 'mt-10 border-[#e0d6ca] bg-white shadow-xl'
+      }`}
     >
       <h3 className="font-serif text-2xl text-[#1a1a1a]">
-        Trova lo showroom più vicino
+        {isCatalogo ? 'Compila il Modulo' : 'Trova lo showroom più vicino'}
       </h3>
       <p className="mt-2 text-sm text-[#666]">
-        Compila il form e ti indicheremo il punto vendita più comodo per te.
+        {isCatalogo
+          ? 'Risposta garantita entro 24 ore'
+          : 'Compila il form e ti indicheremo il punto vendita più comodo per te.'}
       </p>
 
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         <div>
           <label
-            htmlFor="firstName"
+            htmlFor={isCatalogo ? 'catalogo-firstName' : 'firstName'}
             className="mb-1.5 block text-[10px] uppercase tracking-[0.14em] text-[#888]"
           >
             Nome *
           </label>
           <input
-            id="firstName"
+            id={isCatalogo ? 'catalogo-firstName' : 'firstName'}
             type="text"
             name="firstName"
             required
@@ -139,13 +155,13 @@ const ShowroomForm = () => {
 
         <div>
           <label
-            htmlFor="lastName"
+            htmlFor={isCatalogo ? 'catalogo-lastName' : 'lastName'}
             className="mb-1.5 block text-[10px] uppercase tracking-[0.14em] text-[#888]"
           >
             Cognome *
           </label>
           <input
-            id="lastName"
+            id={isCatalogo ? 'catalogo-lastName' : 'lastName'}
             type="text"
             name="lastName"
             required
@@ -158,13 +174,13 @@ const ShowroomForm = () => {
 
         <div>
           <label
-            htmlFor="phone"
+            htmlFor={isCatalogo ? 'catalogo-phone' : 'phone'}
             className="mb-1.5 block text-[10px] uppercase tracking-[0.14em] text-[#888]"
           >
             Telefono *
           </label>
           <input
-            id="phone"
+            id={isCatalogo ? 'catalogo-phone' : 'phone'}
             type="tel"
             name="phone"
             required
@@ -177,13 +193,13 @@ const ShowroomForm = () => {
 
         <div>
           <label
-            htmlFor="email"
+            htmlFor={isCatalogo ? 'catalogo-email' : 'email'}
             className="mb-1.5 block text-[10px] uppercase tracking-[0.14em] text-[#888]"
           >
             Email *
           </label>
           <input
-            id="email"
+            id={isCatalogo ? 'catalogo-email' : 'email'}
             type="email"
             name="email"
             required
@@ -196,13 +212,13 @@ const ShowroomForm = () => {
 
         <div>
           <label
-            htmlFor="provincia"
+            htmlFor={isCatalogo ? 'catalogo-provincia' : 'provincia'}
             className="mb-1.5 block text-[10px] uppercase tracking-[0.14em] text-[#888]"
           >
             Provincia *
           </label>
           <select
-            id="provincia"
+            id={isCatalogo ? 'catalogo-provincia' : 'provincia'}
             name="provincia"
             required
             value={formData.provincia}
@@ -230,13 +246,13 @@ const ShowroomForm = () => {
 
         <div>
           <label
-            htmlFor="comune"
+            htmlFor={isCatalogo ? 'catalogo-comune' : 'comune'}
             className="mb-1.5 block text-[10px] uppercase tracking-[0.14em] text-[#888]"
           >
             Città (Comune) *
           </label>
           <select
-            id="comune"
+            id={isCatalogo ? 'catalogo-comune' : 'comune'}
             name="comune"
             required
             value={formData.comune}
@@ -259,13 +275,13 @@ const ShowroomForm = () => {
 
         <div className="md:col-span-2">
           <label
-            htmlFor="interesse"
+            htmlFor={isCatalogo ? 'catalogo-interesse' : 'interesse'}
             className="mb-1.5 block text-[10px] uppercase tracking-[0.14em] text-[#888]"
           >
             Interesse (opzionale)
           </label>
           <select
-            id="interesse"
+            id={isCatalogo ? 'catalogo-interesse' : 'interesse'}
             name="interesse"
             value={formData.interesse}
             onChange={handleChange}
@@ -323,7 +339,7 @@ const ShowroomForm = () => {
         type="submit"
         className="luxury-button mt-7 w-full rounded-md bg-[#1a1a1a] px-6 py-4 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-[#2a7a6e]"
       >
-        Trova lo showroom
+        {isCatalogo ? 'Richiedi il Catalogo Gratuito' : 'Trova lo showroom'}
       </button>
 
       <p className="mt-3 text-center text-xs text-[#999]">

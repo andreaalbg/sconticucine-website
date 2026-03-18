@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Setup script for Sconti Cucine website
+# Setup script for Atelier Cucine Moderne website
 # This script helps you get started quickly
 
-echo "🚀 Sconti Cucine Website Setup"
+echo "🚀 Atelier Cucine Moderne Website Setup"
 echo "================================"
 echo ""
 

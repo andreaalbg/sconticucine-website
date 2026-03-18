@@ -3,8 +3,8 @@
 ## Step 1: Create GitHub Repository
 
 1. Go to: https://github.com/new
-2. Repository name: `sconticucine-website` (or your choice)
-3. Description: "Sconti Cucine website - Next.js 14 with SEO optimization"
+2. Repository name: `atelier-cucine-moderne-website` (or your choice)
+3. Description: "Atelier Cucine Moderne website - Next.js 14 with SEO optimization"
 4. Visibility: Public or Private
 5. **DO NOT** check "Initialize with README" (we already have one)
 6. Click "Create repository"
@@ -18,7 +18,7 @@ Replace `YOUR_USERNAME` with your actual GitHub username:
 cd /Users/andreaalbagli/Documents/BEhome-1
 
 # Add GitHub remote (replace YOUR_USERNAME)
-git remote add origin https://github.com/YOUR_USERNAME/sconticucine-website.git
+git remote add origin https://github.com/YOUR_USERNAME/atelier-cucine-moderne-website.git
 
 # Push code to GitHub
 git push -u origin main
@@ -58,7 +58,7 @@ vercel
 # - Set up and deploy? Yes
 # - Which scope? (select your account)
 # - Link to existing project? No
-# - Project name? sconticucine-website
+# - Project name? atelier-cucine-moderne-website
 # - Directory? ./
 # - Override settings? No
 
@@ -123,7 +123,7 @@ vercel --prod
 ## Quick Links
 
 - **Vercel Dashboard**: https://vercel.com/dashboard
-- **GitHub Repository**: https://github.com/YOUR_USERNAME/sconticucine-website
+- **GitHub Repository**: https://github.com/YOUR_USERNAME/atelier-cucine-moderne-website
 - **Google Search Console**: https://search.google.com/search-console
 - **PageSpeed Insights**: https://pagespeed.web.dev/
 

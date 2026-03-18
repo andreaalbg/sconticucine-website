@@ -93,27 +93,38 @@ export default function Home() {
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'border-b border-white/10 bg-[#0d0d0d]/92 py-4 backdrop-blur-md'
-            : 'bg-transparent py-7'
+            ? 'border-b border-[#e8e0d6] bg-white/95 py-4 text-[#1a1a1a] backdrop-blur-md'
+            : 'bg-transparent py-7 text-white'
         }`}
       >
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 md:px-10">
-          <a href="#home" className="font-serif text-lg tracking-[0.5em] text-white transition-opacity hover:opacity-70">
-            SCONTI CUCINE
+          <a
+            href="#home"
+            className={`font-serif text-lg tracking-[0.5em] transition-opacity hover:opacity-70 ${
+              isScrolled ? 'text-[#1a1a1a]' : 'text-white'
+            }`}
+          >
+            ATELIER CUCINE MODERNE
           </a>
           <nav className="hidden items-center gap-9 md:flex">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-[11px] uppercase tracking-[0.18em] text-white/80 transition-colors hover:text-white"
+                className={`text-[11px] uppercase tracking-[0.18em] transition-colors ${
+                  isScrolled ? 'text-[#1a1a1a]/80 hover:text-[#1a1a1a]' : 'text-white/80 hover:text-white'
+                }`}
               >
                 {link.label}
               </a>
             ))}
             <a
               href="#catalogo"
-              className="luxury-button rounded-sm border border-[#c4a87a] px-5 py-2 text-[11px] uppercase tracking-[0.18em] text-[#c4a87a] transition-all hover:bg-[#c4a87a] hover:text-[#0d0d0d]"
+              className={`luxury-button rounded-sm border px-5 py-2 text-[11px] uppercase tracking-[0.18em] transition-all ${
+                isScrolled
+                  ? 'border-[#1a1a1a] text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white'
+                  : 'border-[#c4a87a] text-[#c4a87a] hover:bg-[#c4a87a] hover:text-[#0d0d0d]'
+              }`}
             >
               Catalogo
             </a>
@@ -121,21 +132,33 @@ export default function Home() {
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen((o) => !o)}
-            className="luxury-button rounded-sm border border-white/40 px-4 py-2 text-[10px] uppercase tracking-[0.22em] text-white md:hidden"
+            className={`luxury-button rounded-sm border px-4 py-2 text-[10px] uppercase tracking-[0.22em] md:hidden ${
+              isScrolled
+                ? 'border-[#1a1a1a]/60 text-[#1a1a1a]'
+                : 'border-white/40 text-white'
+            }`}
             aria-label="Toggle menu"
           >
             Menu
           </button>
         </div>
         {isMobileMenuOpen && (
-          <div className="mx-6 mt-4 rounded-xl border border-white/10 bg-[#0d0d0d]/96 p-5 md:hidden">
+          <div
+            className={`mx-6 mt-4 rounded-xl border p-5 md:hidden ${
+              isScrolled
+                ? 'border-[#e8e0d6] bg-white/98 text-[#1a1a1a]'
+                : 'border-white/10 bg-[#0d0d0d]/96 text-white'
+            }`}
+          >
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-xs uppercase tracking-[0.18em] text-white/80 transition-colors hover:text-white"
+                  className={`text-xs uppercase tracking-[0.18em] transition-colors ${
+                    isScrolled ? 'text-[#1a1a1a]/80 hover:text-[#1a1a1a]' : 'text-white/80 hover:text-white'
+                  }`}
                 >
                   {link.label}
                 </a>
@@ -477,67 +500,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right: form */}
+          {/* Right: form (stessi campi e checkbox del form showroom) */}
           <div className="reveal-on-scroll">
-            <form className="rounded-2xl border border-[#e8e0d6] bg-[#faf7f4] p-8 md:p-10">
-              <h3 className="font-serif text-2xl text-[#1a1a1a]">Compila il Modulo</h3>
-              <p className="mt-2 text-sm text-[#888]">Risposta garantita entro 24 ore</p>
-
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
-                {[
-                  { id: 'nome', label: 'Nome e Cognome', type: 'text', placeholder: 'Il tuo nome completo' },
-                  { id: 'telefono', label: 'Telefono', type: 'tel', placeholder: '+39 000 000 0000' },
-                  { id: 'email', label: 'Email', type: 'email', placeholder: 'tua@email.com' },
-                  { id: 'citta', label: 'Città', type: 'text', placeholder: 'La tua città' },
-                ].map((f) => (
-                  <div key={f.id}>
-                    <label htmlFor={f.id} className="mb-1.5 block text-[10px] uppercase tracking-[0.14em] text-[#888]">{f.label}</label>
-                    <input
-                      id={f.id}
-                      type={f.type}
-                      required
-                      placeholder={f.placeholder}
-                      className="w-full rounded-md border border-[#ddd] bg-white px-4 py-3 text-sm text-[#1a1a1a] outline-none transition-all placeholder:text-[#ccc] focus:border-[#2a7a6e]"
-                    />
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-4">
-                <label htmlFor="interesse" className="mb-1.5 block text-[10px] uppercase tracking-[0.14em] text-[#888]">Tipo di Cucina</label>
-                <select
-                  id="interesse"
-                  defaultValue=""
-                  className="w-full rounded-md border border-[#ddd] bg-white px-4 py-3 text-sm text-[#1a1a1a] outline-none transition-all focus:border-[#2a7a6e]"
-                >
-                  <option value="" disabled>Seleziona…</option>
-                  <option value="moderne">Cucine Moderne</option>
-                  <option value="classiche">Cucine Classiche</option>
-                  <option value="componibili">Cucine Componibili</option>
-                  <option value="su-misura">Cucine Su Misura</option>
-                  <option value="angolo">Cucine ad Angolo</option>
-                  <option value="altro">Altro</option>
-                </select>
-              </div>
-
-              <label className="mt-5 flex cursor-pointer items-start gap-3">
-                <input
-                  type="checkbox"
-                  required
-                  className="mt-0.5 h-4 w-4 rounded border-[#ddd] accent-[#2a7a6e]"
-                />
-                <span className="text-xs leading-relaxed text-[#999]">
-                  Ho letto e accetto l&apos;informativa privacy e acconsento al trattamento dei miei dati personali
-                </span>
-              </label>
-
-              <button
-                type="submit"
-                className="luxury-button mt-7 w-full rounded-md bg-[#1a1a1a] px-6 py-4 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-[#2a7a6e]"
-              >
-                Richiedi il Catalogo Gratuito
-              </button>
-            </form>
+            <ShowroomForm variant="catalogo" />
           </div>
         </div>
       </section>
@@ -594,7 +559,7 @@ export default function Home() {
       <footer id="contatti" className="bg-[#0d0d0d] px-6 pb-8 pt-20 text-[#f5f0ea] md:px-10">
         <div className="mx-auto grid w-full max-w-7xl gap-10 md:grid-cols-2 xl:grid-cols-4">
           <div>
-            <h3 className="font-serif text-2xl tracking-[0.22em]">SCONTI CUCINE</h3>
+            <h3 className="font-serif text-2xl tracking-[0.22em]">ATELIER CUCINE MODERNE</h3>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-[#b8aea2]">
               Cucine di qualità Made in Italy. Con showroom in tutta Italia, ti accompagniamo
               nella scelta della cucina perfetta con consulenza personalizzata e progettazione 3D.
@@ -625,7 +590,7 @@ export default function Home() {
             <ul className="mt-4 space-y-2.5 text-sm text-[#ddd1c4]">
               <li>Showroom in tutta Italia</li>
               <li>+39 02 1234 5678</li>
-              <li>info@sconticucine.it</li>
+              <li>info@ateliercucinemoderne.it</li>
             </ul>
             <h4 className="mt-8 text-[10px] uppercase tracking-[0.26em] text-[#c4a87a]">Newsletter</h4>
             <p className="mt-3 text-sm text-[#b8aea2]">Ricevi offerte esclusive e promozioni riservate.</p>
@@ -646,7 +611,7 @@ export default function Home() {
         </div>
 
         <div className="mx-auto mt-14 flex w-full max-w-7xl flex-col items-start justify-between gap-5 border-t border-white/10 pt-6 text-xs text-[#9d9388] md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} Sconti Cucine. Tutti i diritti riservati. P.IVA 04914800265</p>
+          <p>© {new Date().getFullYear()} Atelier Cucine Moderne. Tutti i diritti riservati. P.IVA 04914800265</p>
           <div className="flex items-center gap-5">
             <a href="/privacy" className="luxury-button hover:text-white">Privacy Policy</a>
             <a href="/cookie-policy" className="luxury-button hover:text-white">Cookie Policy</a>

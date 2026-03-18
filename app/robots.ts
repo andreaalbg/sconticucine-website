@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/'],
     },
-    sitemap: 'https://www.sconticucine.it/sitemap.xml',
+    sitemap: 'https://www.ateliercucinemoderne.it/sitemap.xml',
   }
 }
 

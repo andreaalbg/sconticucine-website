@@ -1,6 +1,6 @@
-# Sconti Cucine - Website
+# Atelier Cucine Moderne - Website
 
-A modern, high-performance website for Sconti Cucine, built with Next.js 14, TypeScript, and Tailwind CSS.
+A modern, high-performance website for Atelier Cucine Moderne, built with Next.js 14, TypeScript, and Tailwind CSS.
 
 ## 🚀 Features
 
@@ -129,9 +129,9 @@ The easiest way to deploy is using [Vercel](https://vercel.com):
 
 ## 📄 License
 
-© 2024 Sconti Cucine. All rights reserved.
+© 2024 Atelier Cucine Moderne. All rights reserved.
 
 ## 🤝 Support
 
-For support, email info@sconticucine.it or contact through the website form.
+For support, email info@ateliercucinemoderne.it or contact through the website form.
 

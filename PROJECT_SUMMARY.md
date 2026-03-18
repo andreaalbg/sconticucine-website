@@ -2,7 +2,7 @@
 
 ## 🎯 Overview
 
-This is a **production-ready, high-performance website** mirroring the structure and design of sconticucine.it, built with modern web technologies optimized for SEO and user experience.
+This is a **production-ready, high-performance website** mirroring the structure and design of ateliercucinemoderne.it, built with modern web technologies optimized for SEO and user experience.
 
 ## ✨ What's Included
 

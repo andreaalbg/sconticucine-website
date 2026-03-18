@@ -1,9 +1,9 @@
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Sconti Cucine',
-  url: 'https://www.sconticucine.it',
-  logo: 'https://www.sconticucine.it/logo.png',
+  name: 'Atelier Cucine Moderne',
+  url: 'https://www.ateliercucinemoderne.it',
+  logo: 'https://www.ateliercucinemoderne.it/logo.png',
   description:
     'Cucine di qualità Made in Italy. Showroom in tutta Italia con extra sconto fino a 1.000€.',
   address: {
@@ -21,10 +21,10 @@ export const organizationSchema = {
 export const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'FurnitureStore',
-  name: 'Sconti Cucine',
-  image: 'https://www.sconticucine.it/og-image.jpg',
-  '@id': 'https://www.sconticucine.it',
-  url: 'https://www.sconticucine.it',
+  name: 'Atelier Cucine Moderne',
+  image: 'https://www.ateliercucinemoderne.it/og-image.jpg',
+  '@id': 'https://www.ateliercucinemoderne.it',
+  url: 'https://www.ateliercucinemoderne.it',
   telephone: '+39 02 1234 5678',
   priceRange: '€€',
   address: {
@@ -63,7 +63,7 @@ export const productSchema = {
   description: 'Cucine di qualità Made in Italy a prezzi scontati. Design contemporaneo, materiali premium e lavorazione artigianale.',
   brand: {
     '@type': 'Brand',
-    name: 'Sconti Cucine',
+    name: 'Atelier Cucine Moderne',
   },
   offers: {
     '@type': 'AggregateOffer',
@@ -80,7 +80,7 @@ export const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'Quanto costa una cucina da Sconti Cucine?',
+      name: 'Quanto costa una cucina da Atelier Cucine Moderne?',
       acceptedAnswer: {
         '@type': 'Answer',
         text:

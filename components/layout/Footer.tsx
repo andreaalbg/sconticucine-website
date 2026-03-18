@@ -13,7 +13,7 @@ const Footer = () => {
               <span className="text-gray-200">Cucine</span>
             </div>
             <p className="text-sm text-gray-300">
-              ScontiCucine.it - P.IVA 04914800265
+              AtelierCucineModerne.it - P.IVA 04914800265
             </p>
             <p className="text-sm text-gray-400 mt-1">
               © {currentYear} Tutti i diritti riservati
