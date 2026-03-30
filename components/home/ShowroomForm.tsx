@@ -33,6 +33,7 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
   const [comuni, setComuni] = useState<ComuneRecord[]>([])
   const [loadingComuni, setLoadingComuni] = useState(false)
   const [loadError, setLoadError] = useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -44,7 +45,28 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
     interesse: '',
     marketingConsent: false,
     privacyConsent: false,
+    campaign: '',
+    gclid: '',
+    fbclid: '',
+    fonte: 'conversion_lp_cucine',
   })
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const params = new URLSearchParams(window.location.search)
+    const campaign = params.get('campaign') ?? ''
+    const gclid = params.get('gclid') ?? ''
+    const fbclid = params.get('fbclid') ?? ''
+
+    setFormData(prev => ({
+      ...prev,
+      campaign,
+      gclid,
+      fbclid,
+      // fonte: for now fixed as requested
+      fonte: 'conversion_lp_cucine',
+    }))
+  }, [])
 
   useEffect(() => {
     const loadComuni = async () => {
@@ -91,24 +113,50 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
-    const { name, value, type, checked } = e.target
+    const { name, value, type } = e.target
+    const checked =
+      type === 'checkbox' && e.target instanceof HTMLInputElement
+        ? e.target.checked
+        : undefined
     setFormData(prev => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === 'checkbox' ? Boolean(checked) : value,
       ...(name === 'provincia' ? { comune: '' } : null),
     }))
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log(variant === 'catalogo' ? 'Catalogo form submitted:' : 'Showroom form submitted:', formData)
-    if (variant === 'catalogo') {
-      alert("Grazie! Riceverai il catalogo e l'extra sconto all'indirizzo email fornito.")
-    } else {
-      alert(
-        'Grazie! Ti contatteremo per indicarti lo showroom più vicino alla tua zona.',
-      )
+    const run = async () => {
+      try {
+        setIsSubmitting(true)
+        const res = await fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({
+            ...formData,
+            variant,
+          }),
+        })
+
+        if (!res.ok) {
+          throw new Error('Invio non riuscito')
+        }
+
+        if (variant === 'catalogo') {
+          alert("Grazie! Riceverai il catalogo e l'extra sconto all'indirizzo email fornito.")
+        } else {
+          alert('Grazie! Ti contatteremo per indicarti lo showroom più vicino alla tua zona.')
+        }
+      } catch (error) {
+        console.error(error)
+        alert('Si è verificato un errore durante l’invio. Riprova tra poco.')
+      } finally {
+        setIsSubmitting(false)
+      }
     }
+
+    void run()
   }
 
   const isCatalogo = variant === 'catalogo'
@@ -134,6 +182,10 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
       </p>
 
       <div className="mt-6 grid gap-4 md:grid-cols-2">
+        <input type="hidden" name="campaign" value={formData.campaign} />
+        <input type="hidden" name="gclid" value={formData.gclid} />
+        <input type="hidden" name="fbclid" value={formData.fbclid} />
+        <input type="hidden" name="fonte" value={formData.fonte} />
         <div>
           <label
             htmlFor={isCatalogo ? 'catalogo-firstName' : 'firstName'}
@@ -337,9 +389,14 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
 
       <button
         type="submit"
+        disabled={isSubmitting}
         className="luxury-button mt-7 w-full rounded-md bg-[#1a1a1a] px-6 py-4 text-[11px] uppercase tracking-[0.2em] text-white transition-all hover:bg-[#2a7a6e]"
       >
-        {isCatalogo ? 'Richiedi il Catalogo Gratuito' : 'Trova lo showroom'}
+        {isSubmitting
+          ? 'Invio in corso...'
+          : isCatalogo
+            ? 'Richiedi il Catalogo Gratuito'
+            : 'Trova lo showroom'}
       </button>
 
       <p className="mt-3 text-center text-xs text-[#999]">
