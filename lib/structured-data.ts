@@ -5,7 +5,7 @@ export const organizationSchema = {
   url: 'https://www.ateliercucinemoderne.it',
   logo: 'https://www.ateliercucinemoderne.it/logo.png',
   description:
-    'Cucine di qualità Made in Italy. Showroom in tutta Italia con extra sconto fino a 1.000€.',
+    'Cucine di qualità Made in Italy. Showroom in tutta Italia con extra sconto fino a 5.000€.',
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'IT',
@@ -84,7 +84,7 @@ export const faqSchema = {
       acceptedAnswer: {
         '@type': 'Answer',
         text:
-          'Le nostre cucine Made in Italy partono da prezzi molto competitivi grazie ai nostri sconti fino al 45%. Offriamo anche un extra sconto fino a 1.000€ per tutti i nuovi clienti che richiedono il catalogo.',
+          'Le nostre cucine Made in Italy partono da prezzi molto competitivi grazie ai nostri sconti fino al 45%. Offriamo anche un extra sconto fino a 5.000€ per tutti i nuovi clienti che richiedono il catalogo.',
       },
     },
     {
@@ -92,7 +92,7 @@ export const faqSchema = {
       name: 'Il trasporto e montaggio sono inclusi?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Sì, il trasporto e il montaggio della tua nuova cucina sono completamente inclusi nel prezzo. Inoltre, ci occupiamo anche del ritiro e smaltimento della tua vecchia cucina.',
+        text: 'No, trasporto e montaggio non sono inclusi nel prezzo: vengono quotati separatamente in base a zona e complessità dell\'installazione. Su richiesta possiamo occuparci anche del ritiro e smaltimento della vecchia cucina.',
       },
     },
     {

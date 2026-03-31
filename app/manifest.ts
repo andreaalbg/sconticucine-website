@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: 'Atelier Cucine Moderne - Cucine di Qualità Made in Italy',
     short_name: 'AtelierCucineModerne',
     description:
-      'Cucine di qualità Made in Italy. Showroom in tutta Italia con extra sconto fino a 1.000€.',
+      'Cucine di qualità Made in Italy. Showroom in tutta Italia con extra sconto fino a 5.000€.',
     start_url: '/',
     display: 'standalone',
     background_color: '#f5f0ea',

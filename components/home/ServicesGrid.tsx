@@ -1,48 +1,75 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaFlag, FaGift, FaBolt, FaClock, FaCalendarCheck, FaShieldAlt, FaLeaf, FaCertificate } from 'react-icons/fa'
+import {
+  FaBolt,
+  FaCertificate,
+  FaCheckCircle,
+  FaClipboardCheck,
+  FaCouch,
+  FaHandHoldingUsd,
+  FaLeaf,
+  FaRecycle,
+  FaRulerCombined,
+  FaShieldAlt,
+  FaTruck,
+} from 'react-icons/fa'
 
 const services = [
   {
-    icon: FaFlag,
-    title: 'Made in Italy',
-    description: 'Design e produzione italiana. Ogni cucina è realizzata con cura artigianale da maestranze specializzate, garantendo qualità e stile inconfondibile.',
-  },
-  {
-    icon: FaGift,
-    title: 'Extra Sconto fino a 1.000€',
-    description: 'Richiedi il catalogo gratuito e ricevi immediatamente un extra sconto fino a 1.000€ per l\'acquisto della tua nuova cucina.',
-  },
-  {
     icon: FaBolt,
-    title: 'Progettazione 3D',
-    description: 'Visualizza la tua cucina prima di acquistarla. Offriamo progettazione 3D gratuita per aiutarti a immaginare il risultato finale nel tuo ambiente.',
+    title: 'Consulenza & Progettazione 3D Gratuita',
+    description: 'Consulenza dedicata e progettazione 3D gratuita per visualizzare la tua cucina nel tuo ambiente prima di decidere.',
   },
   {
-    icon: FaClock,
-    title: 'Showroom Aperti 7/7',
-    description: 'I nostri showroom sono aperti tutti i giorni per offrirti la massima flessibilità. Vieni quando è più comodo per te.',
-  },
-  {
-    icon: FaCalendarCheck,
-    title: 'Consulenza Personalizzata',
-    description: 'Prenota una consulenza gratuita con un nostro designer. Ti seguiremo in ogni fase del progetto, dal concept alla realizzazione.',
+    icon: FaRulerCombined,
+    title: 'Rilievo Misure Gratuito',
+    description: 'Un tecnico effettua il rilievo misure a domicilio (gratuito) per progettare una cucina perfettamente su misura.',
   },
   {
     icon: FaShieldAlt,
     title: 'Garanzia 5 Anni',
-    description: 'Tutte le nostre cucine sono coperte da garanzia completa di 5 anni. Acquista con la massima tranquillità e sicurezza.',
-  },
-  {
-    icon: FaLeaf,
-    title: 'Impegno Ecologico',
-    description: 'Sono molte le azioni che mettiamo in campo ogni giorno per tutelare l\'ambiente e il tuo benessere, dai materiali eco-friendly ai processi sostenibili.',
+    description: 'Garanzia completa di 5 anni per acquistare con tranquillità.',
   },
   {
     icon: FaCertificate,
-    title: 'Certificazione ISO 9001',
-    description: 'Abbiamo ottenuto la certificazione di qualità ISO 9001, garanzia di processi e standard elevati in ogni fase della produzione.',
+    title: 'Certificato ISO 9001',
+    description: 'Processi e standard di qualità certificati ISO 9001.',
+  },
+  {
+    icon: FaRecycle,
+    title: 'Ritiro & Smaltimento dell’Usato',
+    description: 'Servizio disponibile su richiesta per smaltire la tua vecchia cucina in modo semplice.',
+  },
+  {
+    icon: FaLeaf,
+    title: 'Ecosostenibilità',
+    description: 'Materiali e infrastrutture ecosostenibili, con attenzione all’impatto ambientale.',
+  },
+  {
+    icon: FaCouch,
+    title: 'Realizzazione Cucine su Misura',
+    description: 'Progettiamo e realizziamo cucine su misura per ogni esigenza di spazio e stile.',
+  },
+  {
+    icon: FaCheckCircle,
+    title: 'Pronta Consegna',
+    description: 'Soluzioni selezionate disponibili anche in pronta consegna.',
+  },
+  {
+    icon: FaTruck,
+    title: 'Consegna & Montaggio Specializzati',
+    description: 'Su richiesta, consegna e montaggio effettuati da falegnami esperti specializzati. Trasporto e montaggio non sono inclusi nel prezzo.',
+  },
+  {
+    icon: FaHandHoldingUsd,
+    title: 'Finanziamento Interessi Zero',
+    description: 'Possibilità di finanziamento a interessi zero per rendere l’acquisto più semplice.',
+  },
+  {
+    icon: FaClipboardCheck,
+    title: 'Extra Sconto fino a 5.000€',
+    description: 'Richiedi il catalogo gratuito e ricevi un extra sconto fino a 5.000€ sulla tua nuova cucina.',
   },
 ]
 

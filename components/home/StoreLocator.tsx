@@ -66,7 +66,7 @@ const StoreLocator = () => {
           <div className="mt-12 pt-12 border-t border-white/20">
             <p className="text-lg text-white/90 font-light">
               Extra sconto fino a{' '}
-              <span className="text-sage-light font-semibold">1.000€</span> richiedendo il catalogo
+              <span className="text-sage-light font-semibold">5.000€</span> richiedendo il catalogo
             </p>
           </div>
         </motion.div>

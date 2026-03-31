@@ -11,13 +11,13 @@ const features = [
   },
   {
     icon: FaTag,
-    title: 'Extra Sconto fino a 1.000€',
-    description: 'Richiedi il catalogo gratuito e ricevi un extra sconto fino a 1.000€ sulla tua nuova cucina. Finanziamento a interessi zero e garanzia 5 anni inclusa.',
+    title: 'Extra Sconto fino a 5.000€',
+    description: 'Richiedi il catalogo gratuito e ricevi un extra sconto fino a 5.000€ sulla tua nuova cucina. Finanziamento a interessi zero e garanzia 5 anni.',
   },
   {
     icon: FaTruck,
     title: 'Servizio Completo',
-    description: 'Trasporto, montaggio e ritiro dell\'usato inclusi nel prezzo. Ci occupiamo di tutto, dalla consegna all\'installazione, con massima cura e attenzione.',
+    description: 'Consegna e montaggio su richiesta, effettuati da falegnami esperti specializzati. Trasporto e montaggio non sono inclusi nel prezzo.',
   },
 ]
 

@@ -150,7 +150,7 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
           >
             <p className="text-lg text-gray-600 font-light">
               Catalogo completo via email<br />
-              Extra sconto fino a <span className="text-sage-dark font-semibold">1.000€</span> incluso
+              Extra sconto fino a <span className="text-sage-dark font-semibold">5.000€</span> incluso
             </p>
           </motion.div>
         </motion.div>

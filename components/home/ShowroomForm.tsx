@@ -396,7 +396,7 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
           ? 'Invio in corso...'
           : isCatalogo
             ? 'Richiedi il Catalogo Gratuito'
-            : 'Trova lo showroom'}
+            : 'Voglio essere ricontattato'}
       </button>
 
       <p className="mt-3 text-center text-xs text-[#999]">

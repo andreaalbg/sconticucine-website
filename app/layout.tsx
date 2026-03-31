@@ -21,7 +21,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: 'Atelier Cucine Moderne - Cucine di Qualità Made in Italy | Showroom in tutta Italia',
   description:
-    'Scopri le migliori cucine Made in Italy a prezzi scontati. Showroom in tutta Italia, progettazione 3D gratuita, extra sconto fino a 1.000€, trasporto e montaggio inclusi.',
+    'Scopri le migliori cucine Made in Italy a prezzi scontati. Showroom in tutta Italia, progettazione 3D gratuita, extra sconto fino a 5.000€.',
   keywords: ['cucine', 'cucine moderne', 'cucine classiche', 'cucine su misura', 'cucine componibili', 'arredamento cucina', 'cucine made in italy', 'showroom cucine', 'atelier cucine moderne'],
   authors: [{ name: 'Atelier Cucine Moderne' }],
   creator: 'Atelier Cucine Moderne',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Atelier Cucine Moderne - Cucine di Qualità Made in Italy',
     description:
-      'Showroom in tutta Italia. Cucine prestigiose Made in Italy con extra sconto fino a 1.000€. Progettazione 3D gratuita, trasporto e montaggio inclusi.',
+      'Showroom in tutta Italia. Cucine prestigiose Made in Italy con extra sconto fino a 5.000€. Progettazione 3D gratuita.',
     url: 'https://www.ateliercucinemoderne.it',
     siteName: 'Atelier Cucine Moderne',
     locale: 'it_IT',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Atelier Cucine Moderne - Cucine di Qualità Made in Italy',
-    description: 'Showroom in tutta Italia. Cucine Made in Italy con extra sconto fino a 1.000€.',
+    description: 'Showroom in tutta Italia. Cucine Made in Italy con extra sconto fino a 5.000€.',
     images: ['/og-image.jpg'],
   },
   robots: {

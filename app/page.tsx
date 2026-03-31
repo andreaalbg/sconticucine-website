@@ -28,8 +28,8 @@ const navLinks = [
 
 const serviceCards = [
   {
-    title: 'Progettazione 3D',
-    subtitle: 'Visualizza la tua cucina prima dell\'acquisto',
+    title: 'Consulenza & Progettazione 3D',
+    subtitle: 'Gratuita, con designer dedicato',
     gradient: 'from-[#b39a7d] via-[#94755f] to-[#5e4b3f]',
     className: 'md:col-span-2',
   },
@@ -40,21 +40,21 @@ const serviceCards = [
     className: '',
   },
   {
-    title: 'Consegna e Montaggio',
-    subtitle: 'Squadra specializzata, tutto incluso',
+    title: 'Cucine su Misura',
+    subtitle: 'Progettazione su misura per ogni spazio',
     image: null,
     gradient: 'from-[#4c857b] via-[#2a7a6e] to-[#1d6b60]',
     className: 'md:row-span-2',
   },
   {
-    title: 'Ritiro dell\'Usato',
-    subtitle: 'Smaltimento senza pensieri',
+    title: 'Ritiro & Smaltimento Usato',
+    subtitle: 'Disponibile su richiesta',
     gradient: 'from-[#c4b19a] via-[#a18d73] to-[#6f5a45]',
     className: '',
   },
   {
     title: 'Garanzia 5 Anni',
-    subtitle: 'Qualità certificata ISO 9001',
+    subtitle: 'Certificazione ISO 9001',
     gradient: 'from-[#ab967e] via-[#8c7358] to-[#5d4d39]',
     className: '',
   },
@@ -471,12 +471,12 @@ export default function Home() {
             </h2>
             <p className="mt-5 text-base leading-relaxed text-[#555]">
               Sfoglia le nostre collezioni e lasciati ispirare. Compila il modulo e ricevi subito il
-              catalogo digitale con un extra sconto esclusivo fino a <strong>1.000€</strong> su tutto l&apos;arredo.
+            catalogo digitale con un extra sconto esclusivo fino a <strong>5.000€</strong>.
             </p>
 
             <ul className="mt-8 space-y-4">
               {[
-                'Extra sconto fino a 1.000€',
+                'Extra sconto fino a 5.000€',
                 'Finanziamento a interessi zero',
                 'Rilievo misure gratuito a domicilio',
                 'Progettazione 3D inclusa',
@@ -545,7 +545,7 @@ export default function Home() {
       {/* ─── CTA Banner ───────────────────────────────────────── */}
       <section className="bg-[#2a7a6e] px-6 py-12 text-center text-white md:px-10">
         <p className="mx-auto max-w-xl text-base md:text-lg">
-          Richiedi il catalogo e ottieni un <strong>extra sconto fino a 1.000€</strong> su tutto l&apos;arredo
+          Richiedi il catalogo e ottieni un <strong>extra sconto fino a 5.000€</strong>
         </p>
         <a
           href="#catalogo"
@@ -578,7 +578,14 @@ export default function Home() {
           <div>
             <h4 className="text-[10px] uppercase tracking-[0.26em] text-[#c4a87a]">Servizi</h4>
             <ul className="mt-4 space-y-2.5 text-sm text-[#ddd1c4]">
-              {['Progettazione 3D', 'Rilievo Misure', 'Consegna e Montaggio', 'Ritiro Usato', 'Finanziamenti'].map((item) => (
+              {[
+                'Consulenza & Progettazione 3D',
+                'Rilievo Misure',
+                'Garanzia 5 Anni',
+                'ISO 9001',
+                'Cucine su Misura',
+                'Finanziamento',
+              ].map((item) => (
                 <li key={item}>
                   <a href="#servizi" className="luxury-button hover:text-white">{item}</a>
                 </li>

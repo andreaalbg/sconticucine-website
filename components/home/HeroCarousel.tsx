@@ -32,8 +32,8 @@ const slides = [
   },
   {
     id: 4,
-    title: 'Extra Sconto fino a 1.000€',
-    description: "Richiedi il catalogo gratuito e ricevi subito un extra sconto fino a 1.000€ per l'acquisto della tua nuova cucina. Progettazione 3D gratuita inclusa",
+    title: 'Extra Sconto fino a 5.000€',
+    description: "Richiedi il catalogo gratuito e ricevi subito un extra sconto fino a 5.000€ per l'acquisto della tua nuova cucina. Progettazione 3D gratuita inclusa",
     cta: 'Richiedi Ora',
     image: '/images/hero-1.jpg',
     bgGradient: 'from-white/80 to-primary/30',
