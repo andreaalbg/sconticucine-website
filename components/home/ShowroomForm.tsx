@@ -130,17 +130,42 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
     const run = async () => {
       try {
         setIsSubmitting(true)
-        const res = await fetch('/api/lead', {
+        const fd = new FormData()
+        fd.set('access_key', '541a4e69-84ff-406d-b32b-52a087483a8c')
+        fd.set(
+          'subject',
+          variant === 'catalogo'
+            ? `Nuova richiesta catalogo — ${formData.firstName} ${formData.lastName}`
+            : `Nuova richiesta showroom — ${formData.firstName} ${formData.lastName}`,
+        )
+        fd.set('from_name', 'Atelier Cucine Moderne')
+
+        fd.set('Nome', formData.firstName)
+        fd.set('Cognome', formData.lastName)
+        fd.set('Email', formData.email)
+        fd.set('Telefono', formData.phone)
+        fd.set('Provincia', formData.provincia)
+        fd.set('Comune', formData.comune)
+        fd.set('Gclid', formData.gclid)
+        fd.set('Fbclid', formData.fbclid)
+        fd.set('Fonte', formData.fonte)
+        fd.set('Campaign', formData.campaign)
+        if (formData.interesse) fd.set('Interesse', formData.interesse)
+        fd.set('MarketingConsent', formData.marketingConsent ? 'true' : 'false')
+        fd.set('PrivacyConsent', formData.privacyConsent ? 'true' : 'false')
+
+        const res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({
-            ...formData,
-            variant,
-          }),
+          body: fd,
         })
 
         if (!res.ok) {
           throw new Error('Invio non riuscito')
+        }
+
+        const json = (await res.json()) as { success?: boolean; message?: string }
+        if (!json.success) {
+          throw new Error(json.message ?? 'Invio non riuscito')
         }
 
         if (variant === 'catalogo') {
