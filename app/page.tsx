@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { FaFacebookF, FaInstagram, FaPinterestP, FaStar } from 'react-icons/fa'
+import { FaInstagram, FaStar } from 'react-icons/fa'
 import ShowroomForm from '@/components/home/ShowroomForm'
 
 // URL-encoded image paths
@@ -627,8 +627,6 @@ export default function Home() {
           <div className="flex items-center gap-3">
             {[
               { label: 'Instagram', icon: <FaInstagram /> },
-              { label: 'Facebook', icon: <FaFacebookF /> },
-              { label: 'Pinterest', icon: <FaPinterestP /> },
             ].map(({ label, icon }) => (
               <a
                 key={label}
