@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, Manrope } from 'next/font/google'
 import './globals.css'
-import Analytics from '@/components/Analytics'
 import { GoogleTagManager, GoogleTagManagerNoScript } from '@/components/GoogleTagManager'
 import { organizationSchema, localBusinessSchema, faqSchema } from '@/lib/structured-data'
 
@@ -96,7 +95,6 @@ export default function RootLayout({
       <body className="font-sans">
         <GoogleTagManagerNoScript />
         <GoogleTagManager />
-        <Analytics />
         <main>{children}</main>
       </body>
     </html>
