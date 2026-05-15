@@ -1,25 +1,82 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { submitWeb3Forms, WEB3FORMS_LEAD_SUBJECT } from '@/lib/web3forms'
 
 interface CatalogFormProps {
   variant?: 'top' | 'bottom'
 }
 
 const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     city: '',
     privacy: false,
+    campaign: '',
+    gclid: '',
+    fbclid: '',
   })
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const params = new URLSearchParams(window.location.search)
+    setFormData(prev => ({
+      ...prev,
+      campaign: params.get('campaign') ?? '',
+      gclid: params.get('gclid') ?? '',
+      fbclid: params.get('fbclid') ?? '',
+    }))
+  }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    alert("Grazie! Riceverai il catalogo e l'extra sconto all'indirizzo email fornito.")
+    const run = async () => {
+      try {
+        setIsSubmitting(true)
+        const fd = new FormData()
+        const slug =
+          variant === 'bottom' ? 'progettazione-collezioni' : 'catalogo-collezioni'
+        fd.set('subject', WEB3FORMS_LEAD_SUBJECT)
+        fd.set('from_name', 'Atelier Cucine Moderne')
+        fd.set('replyto', formData.email)
+
+        fd.set('FormTipo', slug)
+        fd.set('Fonte', 'pagina_collezioni')
+        fd.set('NomeCompleto', formData.name)
+        fd.set('Email', formData.email)
+        fd.set('Telefono', formData.phone)
+        fd.set('Citta', formData.city)
+        fd.set('Gclid', formData.gclid)
+        fd.set('Fbclid', formData.fbclid)
+        fd.set('Campaign', formData.campaign)
+        fd.set('PrivacyConsent', formData.privacy ? 'true' : 'false')
+
+        await submitWeb3Forms(fd)
+        alert(
+          variant === 'bottom'
+            ? 'Grazie! Ti contatteremo per la progettazione gratuita.'
+            : "Grazie! Riceverai il catalogo e l'extra sconto all'indirizzo email fornito.",
+        )
+        setFormData(prev => ({
+          ...prev,
+          name: '',
+          email: '',
+          phone: '',
+          city: '',
+          privacy: false,
+        }))
+      } catch (error) {
+        console.error(error)
+        alert('Si è verificato un errore durante l’invio. Riprova tra poco.')
+      } finally {
+        setIsSubmitting(false)
+      }
+    }
+    void run()
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,9 +87,10 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
     }))
   }
 
-  const title = variant === 'top' 
-    ? 'Richiedi il Catalogo Gratuito'
-    : 'Progettazione Gratuita della Tua Cucina'
+  const title =
+    variant === 'top'
+      ? 'Richiedi il Catalogo Gratuito'
+      : 'Progettazione Gratuita della Tua Cucina'
 
   return (
     <section id="catalog" className={`py-20 ${variant === 'top' ? 'bg-gray-50' : 'bg-primary/5'}`}>
@@ -131,14 +189,17 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
 
             <button
               type="submit"
-              className="w-full btn-primary text-lg py-4"
+              disabled={isSubmitting}
+              className="w-full btn-primary text-lg py-4 disabled:opacity-60 disabled:pointer-events-none"
             >
-              Richiedi il Catalogo Gratuito
+              {isSubmitting
+                ? 'Invio in corso…'
+                : variant === 'bottom'
+                  ? 'Richiedi progettazione gratuita'
+                  : 'Richiedi il Catalogo Gratuito'}
             </button>
 
-            <p className="text-center text-sm text-gray-500 mt-4">
-              * Campi obbligatori
-            </p>
+            <p className="text-center text-sm text-gray-500 mt-4">* Campi obbligatori</p>
           </form>
 
           <motion.div
@@ -149,7 +210,8 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
             className="text-center mt-8"
           >
             <p className="text-lg text-gray-600 font-light">
-              Catalogo completo via email<br />
+              Catalogo completo via email
+              <br />
               Extra sconto fino a <span className="text-sage-dark font-semibold">5.000€</span> incluso
             </p>
           </motion.div>

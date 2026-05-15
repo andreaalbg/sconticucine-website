@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import { submitWeb3Forms, WEB3FORMS_LEAD_SUBJECT } from '@/lib/web3forms'
 
 type ComuneRecord = {
   nome: string
@@ -131,14 +132,10 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
       try {
         setIsSubmitting(true)
         const fd = new FormData()
-        fd.set('access_key', '541a4e69-84ff-406d-b32b-52a087483a8c')
-        fd.set(
-          'subject',
-          variant === 'catalogo'
-            ? `Nuova richiesta catalogo — ${formData.firstName} ${formData.lastName}`
-            : `Nuova richiesta showroom — ${formData.firstName} ${formData.lastName}`,
-        )
+        fd.set('subject', WEB3FORMS_LEAD_SUBJECT)
         fd.set('from_name', 'Atelier Cucine Moderne')
+        fd.set('Variant', variant === 'catalogo' ? 'catalogo_home' : 'showroom_home')
+        fd.set('replyto', formData.email)
 
         fd.set('Nome', formData.firstName)
         fd.set('Cognome', formData.lastName)
@@ -154,19 +151,7 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
         fd.set('MarketingConsent', formData.marketingConsent ? 'true' : 'false')
         fd.set('PrivacyConsent', formData.privacyConsent ? 'true' : 'false')
 
-        const res = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          body: fd,
-        })
-
-        if (!res.ok) {
-          throw new Error('Invio non riuscito')
-        }
-
-        const json = (await res.json()) as { success?: boolean; message?: string }
-        if (!json.success) {
-          throw new Error(json.message ?? 'Invio non riuscito')
-        }
+        await submitWeb3Forms(fd)
 
         if (variant === 'catalogo') {
           alert("Grazie! Riceverai il catalogo e l'extra sconto all'indirizzo email fornito.")

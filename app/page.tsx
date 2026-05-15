@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { FaInstagram, FaStar } from 'react-icons/fa'
 import ShowroomForm from '@/components/home/ShowroomForm'
+import { submitWeb3Forms, WEB3FORMS_LEAD_SUBJECT } from '@/lib/web3forms'
 
 // URL-encoded image paths
 const IMG = {
@@ -63,11 +64,28 @@ const serviceCards = [
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [newsletterEmail, setNewsletterEmail] = useState('')
+  const [newsletterSubmitting, setNewsletterSubmitting] = useState(false)
+  const [newsletterTracking, setNewsletterTracking] = useState({
+    campaign: '',
+    gclid: '',
+    fbclid: '',
+  })
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const params = new URLSearchParams(window.location.search)
+    setNewsletterTracking({
+      campaign: params.get('campaign') ?? '',
+      gclid: params.get('gclid') ?? '',
+      fbclid: params.get('fbclid') ?? '',
+    })
   }, [])
 
   useEffect(() => {
@@ -85,6 +103,37 @@ export default function Home() {
     document.querySelectorAll('.reveal-on-scroll').forEach((el) => observer.observe(el))
     return () => observer.disconnect()
   }, [])
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    const run = async () => {
+      const email = newsletterEmail.trim()
+      if (!email) return
+      try {
+        setNewsletterSubmitting(true)
+        const fd = new FormData()
+        fd.set('subject', WEB3FORMS_LEAD_SUBJECT)
+        fd.set('from_name', 'Atelier Cucine Moderne')
+        fd.set('replyto', email)
+        fd.set('FormTipo', 'newsletter_footer_home')
+        fd.set('Fonte', 'footer_home')
+        fd.set('Pagina', '/')
+        fd.set('Email', email)
+        fd.set('Gclid', newsletterTracking.gclid)
+        fd.set('Fbclid', newsletterTracking.fbclid)
+        fd.set('Campaign', newsletterTracking.campaign)
+        await submitWeb3Forms(fd)
+        alert('Grazie! Ti terremo aggiornato su offerte e promozioni.')
+        setNewsletterEmail('')
+      } catch (err) {
+        console.error(err)
+        alert('Si è verificato un errore durante l’iscrizione. Riprova tra poco.')
+      } finally {
+        setNewsletterSubmitting(false)
+      }
+    }
+    void run()
+  }
 
   return (
     <div className="bg-[#f5f0ea] text-[#1a1a1a]">
@@ -601,17 +650,22 @@ export default function Home() {
             </ul>
             <h4 className="mt-8 text-[10px] uppercase tracking-[0.26em] text-[#c4a87a]">Newsletter</h4>
             <p className="mt-3 text-sm text-[#b8aea2]">Ricevi offerte esclusive e promozioni riservate.</p>
-            <form className="mt-3 flex flex-col gap-3">
+            <form className="mt-3 flex flex-col gap-3" onSubmit={handleNewsletterSubmit}>
               <input
                 type="email"
+                name="newsletter-email"
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                required
                 placeholder="La tua email"
                 className="rounded-md border border-[#c4a87a]/30 bg-transparent px-4 py-3 text-sm text-white outline-none transition-all placeholder:text-[#9d9388] focus:border-[#c4a87a]"
               />
               <button
                 type="submit"
-                className="luxury-button rounded-md border border-[#c4a87a] px-4 py-3 text-[10px] uppercase tracking-[0.2em] text-[#c4a87a] transition-all hover:bg-[#c4a87a] hover:text-[#1a1a1a]"
+                disabled={newsletterSubmitting}
+                className="luxury-button rounded-md border border-[#c4a87a] px-4 py-3 text-[10px] uppercase tracking-[0.2em] text-[#c4a87a] transition-all hover:bg-[#c4a87a] hover:text-[#1a1a1a] disabled:opacity-50"
               >
-                Iscriviti
+                {newsletterSubmitting ? 'Invio…' : 'Iscriviti'}
               </button>
             </form>
           </div>
