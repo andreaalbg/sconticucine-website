@@ -1,8 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
-import { submitWeb3Forms, WEB3FORMS_LEAD_SUBJECT } from '@/lib/web3forms'
+import { useEffect, useRef, useState } from 'react'
+import { consentSiNo, submitWeb3Forms, WEB3FORMS_LEAD_SUBJECT } from '@/lib/web3forms'
 
 interface CatalogFormProps {
   variant?: 'top' | 'bottom'
@@ -10,6 +10,7 @@ interface CatalogFormProps {
 
 const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const botCheckRef = useRef<HTMLInputElement>(null)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,41 +20,59 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
     campaign: '',
     gclid: '',
     fbclid: '',
+    fonte: '',
+    interesse: '',
   })
 
   useEffect(() => {
     if (typeof window === 'undefined') return
     const params = new URLSearchParams(window.location.search)
+    const urlInteresse = (params.get('interesse') ?? '').trim()
     setFormData(prev => ({
       ...prev,
-      campaign: params.get('campaign') ?? '',
+      campaign: params.get('utm_campaign') ?? params.get('campaign') ?? '',
       gclid: params.get('gclid') ?? '',
       fbclid: params.get('fbclid') ?? '',
+      fonte: params.get('utm_source') ?? '',
+      interesse: urlInteresse || prev.interesse,
     }))
   }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const run = async () => {
+      if ((botCheckRef.current?.value ?? '').trim() !== '') {
+        return
+      }
       try {
         setIsSubmitting(true)
-        const fd = new FormData()
-        const slug =
-          variant === 'bottom' ? 'progettazione-collezioni' : 'catalogo-collezioni'
-        fd.set('subject', WEB3FORMS_LEAD_SUBJECT)
-        fd.set('from_name', 'Atelier Cucine Moderne')
-        fd.set('replyto', formData.email)
+        const full = formData.name.trim()
+        const parts = full.split(/\s+/).filter(Boolean)
+        const nome = parts[0] ?? ''
+        const cognome = parts.slice(1).join(' ')
+        const email = formData.email.trim()
+        const fromName = `${nome} ${cognome}`.trim()
 
-        fd.set('FormTipo', slug)
-        fd.set('Fonte', 'pagina_collezioni')
-        fd.set('NomeCompleto', formData.name)
-        fd.set('Email', formData.email)
-        fd.set('Telefono', formData.phone)
-        fd.set('Citta', formData.city)
-        fd.set('Gclid', formData.gclid)
-        fd.set('Fbclid', formData.fbclid)
-        fd.set('Campaign', formData.campaign)
-        fd.set('PrivacyConsent', formData.privacy ? 'true' : 'false')
+        const fd = new FormData()
+        fd.set('subject', WEB3FORMS_LEAD_SUBJECT)
+        fd.set('from_name', fromName)
+        fd.set('replyto', email)
+        fd.set('email', email)
+        fd.set('Nome', nome)
+        fd.set('Cognome', cognome)
+        fd.set('Email', email)
+        fd.set('Telefono', formData.phone.trim())
+        fd.set('Provincia', '')
+        fd.set('Comune', formData.city.trim())
+        fd.set('Gclid', formData.gclid.trim())
+        fd.set('Fbclid', formData.fbclid.trim())
+        fd.set('Fonte', formData.fonte.trim())
+        fd.set('Campaign', formData.campaign.trim())
+        fd.set('MarketingConsent', consentSiNo(false))
+        fd.set('PrivacyConsent', consentSiNo(formData.privacy))
+        fd.set('botcheck', '')
+        const interesseTrim = formData.interesse.trim()
+        if (interesseTrim) fd.set('Interesse', interesseTrim)
 
         await submitWeb3Forms(fd)
         alert(
@@ -105,6 +124,16 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
           <h2 className="section-title text-gray-800 mb-12">{title}</h2>
 
           <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
+            <input
+              ref={botCheckRef}
+              type="text"
+              name="botcheck"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden
+              defaultValue=""
+              className="absolute h-px w-px overflow-hidden opacity-0"
+            />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">

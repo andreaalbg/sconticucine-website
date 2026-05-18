@@ -1,10 +1,10 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { FaInstagram, FaStar } from 'react-icons/fa'
 import ShowroomForm from '@/components/home/ShowroomForm'
-import { submitWeb3Forms, WEB3FORMS_LEAD_SUBJECT } from '@/lib/web3forms'
+import { consentSiNo, submitWeb3Forms, WEB3FORMS_LEAD_SUBJECT } from '@/lib/web3forms'
 
 // URL-encoded image paths
 const IMG = {
@@ -66,10 +66,12 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [newsletterEmail, setNewsletterEmail] = useState('')
   const [newsletterSubmitting, setNewsletterSubmitting] = useState(false)
+  const newsletterBotCheckRef = useRef<HTMLInputElement>(null)
   const [newsletterTracking, setNewsletterTracking] = useState({
     campaign: '',
     gclid: '',
     fbclid: '',
+    fonte: '',
   })
 
   useEffect(() => {
@@ -82,9 +84,10 @@ export default function Home() {
     if (typeof window === 'undefined') return
     const params = new URLSearchParams(window.location.search)
     setNewsletterTracking({
-      campaign: params.get('campaign') ?? '',
+      campaign: params.get('utm_campaign') ?? params.get('campaign') ?? '',
       gclid: params.get('gclid') ?? '',
       fbclid: params.get('fbclid') ?? '',
+      fonte: params.get('utm_source') ?? '',
     })
   }, [])
 
@@ -107,21 +110,40 @@ export default function Home() {
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const run = async () => {
+      if ((newsletterBotCheckRef.current?.value ?? '').trim() !== '') {
+        return
+      }
       const email = newsletterEmail.trim()
       if (!email) return
       try {
         setNewsletterSubmitting(true)
+        const localPart = email.split('@')[0]?.trim() || email
+        const nome = localPart
+        const cognome = ''
+        const fromName = `${nome} ${cognome}`.trim()
+
         const fd = new FormData()
         fd.set('subject', WEB3FORMS_LEAD_SUBJECT)
-        fd.set('from_name', 'Atelier Cucine Moderne')
+        fd.set('from_name', fromName)
         fd.set('replyto', email)
-        fd.set('FormTipo', 'newsletter_footer_home')
-        fd.set('Fonte', 'footer_home')
-        fd.set('Pagina', '/')
+        fd.set('email', email)
+        fd.set('Nome', nome)
+        fd.set('Cognome', cognome)
         fd.set('Email', email)
-        fd.set('Gclid', newsletterTracking.gclid)
-        fd.set('Fbclid', newsletterTracking.fbclid)
-        fd.set('Campaign', newsletterTracking.campaign)
+        fd.set('Telefono', '')
+        fd.set('Provincia', '')
+        fd.set('Comune', '')
+        fd.set('Gclid', newsletterTracking.gclid.trim())
+        fd.set('Fbclid', newsletterTracking.fbclid.trim())
+        fd.set('Fonte', newsletterTracking.fonte.trim())
+        fd.set('Campaign', newsletterTracking.campaign.trim())
+        fd.set('MarketingConsent', consentSiNo(false))
+        fd.set('PrivacyConsent', consentSiNo(false))
+        fd.set('botcheck', '')
+        if (typeof window !== 'undefined') {
+          const interesseTrim = (new URLSearchParams(window.location.search).get('interesse') ?? '').trim()
+          if (interesseTrim) fd.set('Interesse', interesseTrim)
+        }
         await submitWeb3Forms(fd)
         alert('Grazie! Ti terremo aggiornato su offerte e promozioni.')
         setNewsletterEmail('')
@@ -651,6 +673,16 @@ export default function Home() {
             <h4 className="mt-8 text-[10px] uppercase tracking-[0.26em] text-[#c4a87a]">Newsletter</h4>
             <p className="mt-3 text-sm text-[#b8aea2]">Ricevi offerte esclusive e promozioni riservate.</p>
             <form className="mt-3 flex flex-col gap-3" onSubmit={handleNewsletterSubmit}>
+              <input
+                ref={newsletterBotCheckRef}
+                type="text"
+                name="botcheck"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden
+                defaultValue=""
+                className="absolute h-px w-px overflow-hidden opacity-0"
+              />
               <input
                 type="email"
                 name="newsletter-email"

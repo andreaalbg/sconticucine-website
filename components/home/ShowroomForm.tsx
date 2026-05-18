@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
-import { submitWeb3Forms, WEB3FORMS_LEAD_SUBJECT } from '@/lib/web3forms'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { consentSiNo, submitWeb3Forms, WEB3FORMS_LEAD_SUBJECT } from '@/lib/web3forms'
 
 type ComuneRecord = {
   nome: string
@@ -35,6 +35,7 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
   const [loadingComuni, setLoadingComuni] = useState(false)
   const [loadError, setLoadError] = useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const botCheckRef = useRef<HTMLInputElement>(null)
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -49,23 +50,25 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
     campaign: '',
     gclid: '',
     fbclid: '',
-    fonte: 'conversion_lp_cucine',
+    fonte: '',
   })
 
   useEffect(() => {
     if (typeof window === 'undefined') return
     const params = new URLSearchParams(window.location.search)
-    const campaign = params.get('campaign') ?? ''
+    const campaign = params.get('utm_campaign') ?? params.get('campaign') ?? ''
     const gclid = params.get('gclid') ?? ''
     const fbclid = params.get('fbclid') ?? ''
+    const fonte = params.get('utm_source') ?? ''
+    const urlInteresse = (params.get('interesse') ?? '').trim()
 
     setFormData(prev => ({
       ...prev,
       campaign,
       gclid,
       fbclid,
-      // fonte: for now fixed as requested
-      fonte: 'conversion_lp_cucine',
+      fonte,
+      interesse: urlInteresse || prev.interesse,
     }))
   }, [])
 
@@ -130,26 +133,35 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
     e.preventDefault()
     const run = async () => {
       try {
+        if ((botCheckRef.current?.value ?? '').trim() !== '') {
+          return
+        }
         setIsSubmitting(true)
+        const nome = formData.firstName.trim()
+        const cognome = formData.lastName.trim()
+        const email = formData.email.trim()
+        const fromName = `${nome} ${cognome}`.trim()
+
         const fd = new FormData()
         fd.set('subject', WEB3FORMS_LEAD_SUBJECT)
-        fd.set('from_name', 'Atelier Cucine Moderne')
-        fd.set('Variant', variant === 'catalogo' ? 'catalogo_home' : 'showroom_home')
-        fd.set('replyto', formData.email)
-
-        fd.set('Nome', formData.firstName)
-        fd.set('Cognome', formData.lastName)
-        fd.set('Email', formData.email)
-        fd.set('Telefono', formData.phone)
-        fd.set('Provincia', formData.provincia)
-        fd.set('Comune', formData.comune)
-        fd.set('Gclid', formData.gclid)
-        fd.set('Fbclid', formData.fbclid)
-        fd.set('Fonte', formData.fonte)
-        fd.set('Campaign', formData.campaign)
-        if (formData.interesse) fd.set('Interesse', formData.interesse)
-        fd.set('MarketingConsent', formData.marketingConsent ? 'true' : 'false')
-        fd.set('PrivacyConsent', formData.privacyConsent ? 'true' : 'false')
+        fd.set('from_name', fromName)
+        fd.set('replyto', email)
+        fd.set('email', email)
+        fd.set('Nome', nome)
+        fd.set('Cognome', cognome)
+        fd.set('Email', email)
+        fd.set('Telefono', formData.phone.trim())
+        fd.set('Provincia', formData.provincia.trim())
+        fd.set('Comune', formData.comune.trim())
+        fd.set('Gclid', formData.gclid.trim())
+        fd.set('Fbclid', formData.fbclid.trim())
+        fd.set('Fonte', formData.fonte.trim())
+        fd.set('Campaign', formData.campaign.trim())
+        fd.set('MarketingConsent', consentSiNo(formData.marketingConsent))
+        fd.set('PrivacyConsent', consentSiNo(formData.privacyConsent))
+        fd.set('botcheck', '')
+        const interesseTrim = formData.interesse.trim()
+        if (interesseTrim) fd.set('Interesse', interesseTrim)
 
         await submitWeb3Forms(fd)
 
@@ -192,10 +204,16 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
       </p>
 
       <div className="mt-6 grid gap-4 md:grid-cols-2">
-        <input type="hidden" name="campaign" value={formData.campaign} />
-        <input type="hidden" name="gclid" value={formData.gclid} />
-        <input type="hidden" name="fbclid" value={formData.fbclid} />
-        <input type="hidden" name="fonte" value={formData.fonte} />
+        <input
+          ref={botCheckRef}
+          type="text"
+          name="botcheck"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden
+          defaultValue=""
+          className="absolute h-px w-px overflow-hidden opacity-0"
+        />
         <div>
           <label
             htmlFor={isCatalogo ? 'catalogo-firstName' : 'firstName'}
