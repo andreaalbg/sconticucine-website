@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { FaInstagram, FaStar } from 'react-icons/fa'
 import ShowroomForm from '@/components/home/ShowroomForm'
+import { ACCONSENTO_COOKIE_POLICY_URL } from '@/lib/acconsento-config'
 
 // URL-encoded image paths
 const IMG = {
@@ -571,7 +572,14 @@ export default function Home() {
           <p>© {new Date().getFullYear()} Atelier Cucine Moderne. Tutti i diritti riservati. P.IVA 04914800265</p>
           <div className="flex items-center gap-5">
             <a href="/privacy" className="luxury-button hover:text-white">Privacy Policy</a>
-            <a href="/cookie-policy" className="luxury-button hover:text-white">Cookie Policy</a>
+            <a
+              href={ACCONSENTO_COOKIE_POLICY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="luxury-button hover:text-white"
+            >
+              Cookie Policy
+            </a>
           </div>
           <div className="flex items-center gap-3">
             {[

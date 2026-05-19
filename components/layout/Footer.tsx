@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ACCONSENTO_COOKIE_POLICY_URL } from '@/lib/acconsento-config'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -27,8 +28,10 @@ const Footer = () => {
             >
               Privacy Policy
             </Link>
-            <Link 
-              href="/cookie-policy" 
+            <Link
+              href={ACCONSENTO_COOKIE_POLICY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm text-gray-300 hover:text-primary transition-colors duration-300"
             >
               Cookie Policy

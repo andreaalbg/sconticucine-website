@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, Manrope } from 'next/font/google'
 import './globals.css'
-import { GoogleTagManager, GoogleTagManagerNoScript } from '@/components/GoogleTagManager'
+import { AcconsentoScript, GoogleConsentModeDefaults } from '@/components/consent/AcconsentoConsent'
+import { GoogleTagManagerNoScript } from '@/components/GoogleTagManager'
 import { organizationSchema, localBusinessSchema, faqSchema } from '@/lib/structured-data'
 
 const cormorant = Cormorant_Garamond({
@@ -93,8 +94,9 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans">
+        <GoogleConsentModeDefaults />
+        <AcconsentoScript />
         <GoogleTagManagerNoScript />
-        <GoogleTagManager />
         <main>{children}</main>
       </body>
     </html>

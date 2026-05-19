@@ -15,7 +15,7 @@ export function middleware(request: NextRequest) {
   // Content Security Policy
   response.headers.set(
     'Content-Security-Policy',
-    "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://api.web3forms.com; frame-src https://www.googletagmanager.com; form-action 'self' https://api.web3forms.com;"
+    "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://acconsento.click https://accesso.acconsento.click; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://acconsento.click https://accesso.acconsento.click; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://api.web3forms.com https://acconsento.click https://accesso.acconsento.click https://region1.google-analytics.com; frame-src https://www.googletagmanager.com https://accesso.acconsento.click https://acconsento.click; form-action 'self' https://api.web3forms.com;"
   )
 
   // Other security headers
