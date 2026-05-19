@@ -33,12 +33,6 @@ const Footer = () => {
             >
               Cookie Policy
             </Link>
-            <Link 
-              href="/terms" 
-              className="text-sm text-gray-300 hover:text-primary transition-colors duration-300"
-            >
-              Condizioni di Vendita
-            </Link>
           </div>
         </div>
 
