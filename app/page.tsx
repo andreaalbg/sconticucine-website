@@ -1,10 +1,9 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { FaInstagram, FaStar } from 'react-icons/fa'
 import ShowroomForm from '@/components/home/ShowroomForm'
-import { consentSiNo, submitWeb3Forms, WEB3FORMS_LEAD_SUBJECT } from '@/lib/web3forms'
 
 // URL-encoded image paths
 const IMG = {
@@ -64,31 +63,11 @@ const serviceCards = [
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [newsletterEmail, setNewsletterEmail] = useState('')
-  const [newsletterSubmitting, setNewsletterSubmitting] = useState(false)
-  const newsletterBotCheckRef = useRef<HTMLInputElement>(null)
-  const [newsletterTracking, setNewsletterTracking] = useState({
-    campaign: '',
-    gclid: '',
-    fbclid: '',
-    fonte: '',
-  })
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    const params = new URLSearchParams(window.location.search)
-    setNewsletterTracking({
-      campaign: params.get('utm_campaign') ?? params.get('campaign') ?? '',
-      gclid: params.get('gclid') ?? '',
-      fbclid: params.get('fbclid') ?? '',
-      fonte: params.get('utm_source') ?? '',
-    })
   }, [])
 
   useEffect(() => {
@@ -106,56 +85,6 @@ export default function Home() {
     document.querySelectorAll('.reveal-on-scroll').forEach((el) => observer.observe(el))
     return () => observer.disconnect()
   }, [])
-
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    const run = async () => {
-      if ((newsletterBotCheckRef.current?.value ?? '').trim() !== '') {
-        return
-      }
-      const email = newsletterEmail.trim()
-      if (!email) return
-      try {
-        setNewsletterSubmitting(true)
-        const localPart = email.split('@')[0]?.trim() || email
-        const nome = localPart
-        const cognome = ''
-        const fromName = `${nome} ${cognome}`.trim()
-
-        const fd = new FormData()
-        fd.set('subject', WEB3FORMS_LEAD_SUBJECT)
-        fd.set('from_name', fromName)
-        fd.set('replyto', email)
-        fd.set('email', email)
-        fd.set('Nome', nome)
-        fd.set('Cognome', cognome)
-        fd.set('Email', email)
-        fd.set('Telefono', '')
-        fd.set('Provincia', '')
-        fd.set('Comune', '')
-        fd.set('Gclid', newsletterTracking.gclid.trim())
-        fd.set('Fbclid', newsletterTracking.fbclid.trim())
-        fd.set('Fonte', newsletterTracking.fonte.trim())
-        fd.set('Campaign', newsletterTracking.campaign.trim())
-        fd.set('MarketingConsent', consentSiNo(false))
-        fd.set('PrivacyConsent', consentSiNo(false))
-        fd.set('botcheck', '')
-        if (typeof window !== 'undefined') {
-          const interesseTrim = (new URLSearchParams(window.location.search).get('interesse') ?? '').trim()
-          if (interesseTrim) fd.set('Interesse', interesseTrim)
-        }
-        await submitWeb3Forms(fd)
-        alert('Grazie! Ti terremo aggiornato su offerte e promozioni.')
-        setNewsletterEmail('')
-      } catch (err) {
-        console.error(err)
-        alert('Si è verificato un errore durante l’iscrizione. Riprova tra poco.')
-      } finally {
-        setNewsletterSubmitting(false)
-      }
-    }
-    void run()
-  }
 
   return (
     <div className="bg-[#f5f0ea] text-[#1a1a1a]">
@@ -628,78 +557,13 @@ export default function Home() {
 
       {/* ─── Footer ───────────────────────────────────────────── */}
       <footer id="contatti" className="bg-[#0d0d0d] px-6 pb-8 pt-20 text-[#f5f0ea] md:px-10">
-        <div className="mx-auto grid w-full max-w-7xl gap-10 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mx-auto w-full max-w-7xl">
           <div>
             <h3 className="font-serif text-2xl tracking-[0.22em]">ATELIER CUCINE MODERNE</h3>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-[#b8aea2]">
               Cucine di qualità Made in Italy. Con showroom in tutta Italia, ti accompagniamo
               nella scelta della cucina perfetta con consulenza personalizzata e progettazione 3D.
             </p>
-          </div>
-          <div>
-            <h4 className="text-[10px] uppercase tracking-[0.26em] text-[#c4a87a]">Prodotti</h4>
-            <ul className="mt-4 space-y-2.5 text-sm text-[#ddd1c4]">
-              {['Cucine Moderne', 'Cucine Classiche', 'Cucine Componibili', 'Cucine Su Misura', 'Cucine ad Angolo'].map((item) => (
-                <li key={item}>
-                  <a href="#cucine" className="luxury-button hover:text-white">{item}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-[10px] uppercase tracking-[0.26em] text-[#c4a87a]">Servizi</h4>
-            <ul className="mt-4 space-y-2.5 text-sm text-[#ddd1c4]">
-              {[
-                'Consulenza & Progettazione 3D',
-                'Rilievo Misure',
-                'Garanzia 5 Anni',
-                'ISO 9001',
-                'Cucine su Misura',
-                'Finanziamento',
-              ].map((item) => (
-                <li key={item}>
-                  <a href="#servizi" className="luxury-button hover:text-white">{item}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-[10px] uppercase tracking-[0.26em] text-[#c4a87a]">Contatti</h4>
-            <ul className="mt-4 space-y-2.5 text-sm text-[#ddd1c4]">
-              <li>Showroom in tutta Italia</li>
-              <li>+39 02 1234 5678</li>
-              <li>info@ateliercucinemoderne.it</li>
-            </ul>
-            <h4 className="mt-8 text-[10px] uppercase tracking-[0.26em] text-[#c4a87a]">Newsletter</h4>
-            <p className="mt-3 text-sm text-[#b8aea2]">Ricevi offerte esclusive e promozioni riservate.</p>
-            <form className="mt-3 flex flex-col gap-3" onSubmit={handleNewsletterSubmit}>
-              <input
-                ref={newsletterBotCheckRef}
-                type="text"
-                name="botcheck"
-                tabIndex={-1}
-                autoComplete="off"
-                aria-hidden
-                defaultValue=""
-                className="absolute h-px w-px overflow-hidden opacity-0"
-              />
-              <input
-                type="email"
-                name="newsletter-email"
-                value={newsletterEmail}
-                onChange={(e) => setNewsletterEmail(e.target.value)}
-                required
-                placeholder="La tua email"
-                className="rounded-md border border-[#c4a87a]/30 bg-transparent px-4 py-3 text-sm text-white outline-none transition-all placeholder:text-[#9d9388] focus:border-[#c4a87a]"
-              />
-              <button
-                type="submit"
-                disabled={newsletterSubmitting}
-                className="luxury-button rounded-md border border-[#c4a87a] px-4 py-3 text-[10px] uppercase tracking-[0.2em] text-[#c4a87a] transition-all hover:bg-[#c4a87a] hover:text-[#1a1a1a] disabled:opacity-50"
-              >
-                {newsletterSubmitting ? 'Invio…' : 'Iscriviti'}
-              </button>
-            </form>
           </div>
         </div>
 

@@ -2,7 +2,15 @@
 
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
-import { consentSiNo, submitWeb3Forms, WEB3FORMS_LEAD_SUBJECT } from '@/lib/web3forms'
+import {
+  MarketingConsentLabel,
+  PrivacyConsentLabel,
+} from '@/components/legal/ConsentLabels'
+import {
+  buildLeadFormData,
+  submitWeb3Forms,
+  WEB3FORMS_SUBJECTS,
+} from '@/lib/web3forms'
 
 interface CatalogFormProps {
   variant?: 'top' | 'bottom'
@@ -16,7 +24,8 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
     email: '',
     phone: '',
     city: '',
-    privacy: false,
+    marketingConsent: false,
+    privacyConsent: false,
     campaign: '',
     gclid: '',
     fbclid: '',
@@ -50,29 +59,27 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
         const parts = full.split(/\s+/).filter(Boolean)
         const nome = parts[0] ?? ''
         const cognome = parts.slice(1).join(' ')
-        const email = formData.email.trim()
-        const fromName = `${nome} ${cognome}`.trim()
 
-        const fd = new FormData()
-        fd.set('subject', WEB3FORMS_LEAD_SUBJECT)
-        fd.set('from_name', fromName)
-        fd.set('replyto', email)
-        fd.set('email', email)
-        fd.set('Nome', nome)
-        fd.set('Cognome', cognome)
-        fd.set('Email', email)
-        fd.set('Telefono', formData.phone.trim())
-        fd.set('Provincia', '')
-        fd.set('Comune', formData.city.trim())
-        fd.set('Gclid', formData.gclid.trim())
-        fd.set('Fbclid', formData.fbclid.trim())
-        fd.set('Fonte', formData.fonte.trim())
-        fd.set('Campaign', formData.campaign.trim())
-        fd.set('MarketingConsent', consentSiNo(false))
-        fd.set('PrivacyConsent', consentSiNo(formData.privacy))
-        fd.set('botcheck', '')
-        const interesseTrim = formData.interesse.trim()
-        if (interesseTrim) fd.set('Interesse', interesseTrim)
+        const fd = buildLeadFormData({
+          subject:
+            variant === 'bottom'
+              ? WEB3FORMS_SUBJECTS.collezioniProgettazione
+              : WEB3FORMS_SUBJECTS.collezioniCatalogo,
+          nome,
+          cognome,
+          email: formData.email,
+          telefono: formData.phone,
+          provincia: '',
+          comune: formData.city,
+          gclid: formData.gclid,
+          fbclid: formData.fbclid,
+          fonte: formData.fonte,
+          campaign: formData.campaign,
+          marketingConsent: formData.marketingConsent,
+          privacyConsent: formData.privacyConsent,
+          botcheck: botCheckRef.current?.value ?? '',
+          interesse: formData.interesse,
+        })
 
         await submitWeb3Forms(fd)
         alert(
@@ -86,7 +93,8 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
           email: '',
           phone: '',
           city: '',
-          privacy: false,
+          marketingConsent: false,
+          privacyConsent: false,
         }))
       } catch (error) {
         console.error(error)
@@ -200,18 +208,30 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
               </div>
             </div>
 
-            <div className="mb-8">
-              <label className="flex items-start space-x-3 cursor-pointer">
+            <div className="mb-8 space-y-4">
+              <label className="flex cursor-pointer items-start gap-3">
                 <input
                   type="checkbox"
-                  name="privacy"
-                  required
-                  checked={formData.privacy}
+                  name="marketingConsent"
+                  checked={formData.marketingConsent}
                   onChange={handleChange}
-                  className="mt-1 w-5 h-5 text-primary border-gray-300 rounded focus:ring-primary"
+                  className="mt-1 h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary"
                 />
                 <span className="text-sm text-gray-700">
-                  <strong>Ho letto l&apos;informativa privacy</strong> e acconsento al trattamento dei miei dati personali *
+                  <MarketingConsentLabel />
+                </span>
+              </label>
+              <label className="flex cursor-pointer items-start gap-3">
+                <input
+                  type="checkbox"
+                  name="privacyConsent"
+                  required
+                  checked={formData.privacyConsent}
+                  onChange={handleChange}
+                  className="mt-1 h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary"
+                />
+                <span className="text-sm text-gray-700">
+                  <PrivacyConsentLabel /> *
                 </span>
               </label>
             </div>

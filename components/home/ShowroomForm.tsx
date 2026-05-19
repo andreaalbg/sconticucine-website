@@ -1,7 +1,15 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { consentSiNo, submitWeb3Forms, WEB3FORMS_LEAD_SUBJECT } from '@/lib/web3forms'
+import {
+  MarketingConsentLabel,
+  PrivacyConsentLabel,
+} from '@/components/legal/ConsentLabels'
+import {
+  buildLeadFormData,
+  submitWeb3Forms,
+  WEB3FORMS_SUBJECTS,
+} from '@/lib/web3forms'
 
 type ComuneRecord = {
   nome: string
@@ -137,31 +145,26 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
           return
         }
         setIsSubmitting(true)
-        const nome = formData.firstName.trim()
-        const cognome = formData.lastName.trim()
-        const email = formData.email.trim()
-        const fromName = `${nome} ${cognome}`.trim()
-
-        const fd = new FormData()
-        fd.set('subject', WEB3FORMS_LEAD_SUBJECT)
-        fd.set('from_name', fromName)
-        fd.set('replyto', email)
-        fd.set('email', email)
-        fd.set('Nome', nome)
-        fd.set('Cognome', cognome)
-        fd.set('Email', email)
-        fd.set('Telefono', formData.phone.trim())
-        fd.set('Provincia', formData.provincia.trim())
-        fd.set('Comune', formData.comune.trim())
-        fd.set('Gclid', formData.gclid.trim())
-        fd.set('Fbclid', formData.fbclid.trim())
-        fd.set('Fonte', formData.fonte.trim())
-        fd.set('Campaign', formData.campaign.trim())
-        fd.set('MarketingConsent', consentSiNo(formData.marketingConsent))
-        fd.set('PrivacyConsent', consentSiNo(formData.privacyConsent))
-        fd.set('botcheck', '')
-        const interesseTrim = formData.interesse.trim()
-        if (interesseTrim) fd.set('Interesse', interesseTrim)
+        const fd = buildLeadFormData({
+          subject:
+            variant === 'catalogo'
+              ? WEB3FORMS_SUBJECTS.homeCatalogo
+              : WEB3FORMS_SUBJECTS.homeShowroom,
+          nome: formData.firstName,
+          cognome: formData.lastName,
+          email: formData.email,
+          telefono: formData.phone,
+          provincia: formData.provincia,
+          comune: formData.comune,
+          gclid: formData.gclid,
+          fbclid: formData.fbclid,
+          fonte: formData.fonte,
+          campaign: formData.campaign,
+          marketingConsent: formData.marketingConsent,
+          privacyConsent: formData.privacyConsent,
+          botcheck: botCheckRef.current?.value ?? '',
+          interesse: formData.interesse,
+        })
 
         await submitWeb3Forms(fd)
 
@@ -387,9 +390,7 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
             className="mt-0.5 h-4 w-4 rounded border-[#ccc] accent-[#2a7a6e]"
           />
           <span>
-            Esprimo il consenso ad essere ricontattato per comunicazioni
-            commerciali e pubblicitarie con modalità di contatto automatizzate o
-            tradizionali via sms, telefono, email, newsletter.
+            <MarketingConsentLabel />
           </span>
         </label>
 
@@ -403,14 +404,7 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
             className="mt-0.5 h-4 w-4 rounded border-[#ccc] accent-[#2a7a6e]"
           />
           <span>
-            Esprimo il consenso al trattamento dell&apos;informativa{' '}
-            <a
-              href="/privacy"
-              className="underline decoration-[#2a7a6e] underline-offset-2 hover:text-[#2a7a6e]"
-            >
-              privacy
-            </a>
-            . *
+            <PrivacyConsentLabel /> *
           </span>
         </label>
       </div>
