@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { FaInstagram, FaStar } from 'react-icons/fa'
+import { FaStar } from 'react-icons/fa'
 import ShowroomForm from '@/components/home/ShowroomForm'
 import { ACCONSENTO_COOKIE_POLICY_URL } from '@/lib/acconsento-config'
 
@@ -580,20 +580,6 @@ export default function Home() {
             >
               Cookie Policy
             </a>
-          </div>
-          <div className="flex items-center gap-3">
-            {[
-              { label: 'Instagram', icon: <FaInstagram /> },
-            ].map(({ label, icon }) => (
-              <a
-                key={label}
-                href="#home"
-                aria-label={label}
-                className="luxury-button rounded-sm border border-white/15 p-2 text-[#ddd1c4] transition-all hover:border-[#c4a87a] hover:text-white"
-              >
-                {icon}
-              </a>
-            ))}
           </div>
         </div>
       </footer>
