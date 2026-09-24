@@ -64,7 +64,7 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
   useEffect(() => {
     if (typeof window === 'undefined') return
     const params = new URLSearchParams(window.location.search)
-    const campaign = params.get('utm_campaign') ?? params.get('campaign') ?? ''
+    const campaign = params.get('campaign')?.trim() ?? ''
     const gclid = params.get('gclid') ?? ''
     const fbclid = params.get('fbclid') ?? ''
     const fonte = params.get('utm_source') ?? ''
@@ -429,4 +429,3 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
 }
 
 export default ShowroomForm
-

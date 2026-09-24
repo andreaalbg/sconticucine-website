@@ -246,6 +246,28 @@ export const privacyPolicySections: PrivacySection[] = [
     ],
   },
   {
+    id: 'sicurezza-nfc',
+    title:
+      'TRATTAMENTO DEI DATI PER FINALITÀ DI SICUREZZA E PREVENZIONE DEGLI ABUSI E FRODI (SISTEMI NFC PER LA RACCOLTA DI RECENSIONI)',
+    blocks: [
+      {
+        type: 'p',
+        text: "Presso i punti vendita BEHOME sono messi a disposizione dispositivi NFC che, previa scansione volontaria da parte del cliente, conducono a una pagina di transito e da questa alla piattaforma di recensioni di Google. Al solo fine di garantire il corretto funzionamento del servizio e l'autenticità delle recensioni, impedendo scansioni ripetute e massive del medesimo dispositivo, il sistema:",
+      },
+      {
+        type: 'ul',
+        items: [
+          "memorizza sul dispositivo dell'utente un cookie tecnico contenente un identificatore del dispositivo/browser, finalizzato a limitare ulteriori interazioni con il medesimo sistema per un periodo massimo di 90 giorni;",
+          "registra l'indirizzo IP del dispositivo temporaneamente, salvandolo in forma cifrata e conservandolo in appositi file di log per un periodo massimo di 90 giorni.",
+        ],
+      },
+      {
+        type: 'p',
+        text: "Nessuno dei dati sopra indicati è associato al contenuto della recensione, che l'utente pubblica direttamente sulla piattaforma di Google, la quale opera quale autonomo titolare del trattamento secondo la propria informativa. La base giuridica del trattamento è il legittimo interesse del Titolare ai sensi dell'art. 6, par. 1, lett. f), del Regolamento (UE) 2016/679 (GDPR), consistente nella tutela della sicurezza e dell'integrità del sistema e nella prevenzione di utilizzi abusivi o fraudolenti dei dispositivi di raccolta dei feedback.",
+      },
+    ],
+  },
+  {
     id: 'esercizio-diritti',
     title: 'Modalità di esercizio dei diritti',
     blocks: [

@@ -39,7 +39,7 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
     const urlInteresse = (params.get('interesse') ?? '').trim()
     setFormData(prev => ({
       ...prev,
-      campaign: params.get('utm_campaign') ?? params.get('campaign') ?? '',
+      campaign: params.get('campaign')?.trim() ?? '',
       gclid: params.get('gclid') ?? '',
       fbclid: params.get('fbclid') ?? '',
       fonte: params.get('utm_source') ?? '',
