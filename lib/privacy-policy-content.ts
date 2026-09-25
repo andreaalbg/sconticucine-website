@@ -252,7 +252,7 @@ export const privacyPolicySections: PrivacySection[] = [
     blocks: [
       {
         type: 'p',
-        text: "Presso i punti vendita BEHOME sono messi a disposizione dispositivi NFC che, previa scansione volontaria da parte del cliente, conducono a una pagina di transito e da questa alla piattaforma di recensioni di Google. Al solo fine di garantire il corretto funzionamento del servizio e l'autenticità delle recensioni, impedendo scansioni ripetute e massive del medesimo dispositivo, il sistema:",
+        text: "Presso i punti vendita G.A. SRL sono messi a disposizione dispositivi NFC che, previa scansione volontaria da parte del cliente, conducono a una pagina di transito e da questa alla piattaforma di recensioni di Google. Al solo fine di garantire il corretto funzionamento del servizio e l'autenticità delle recensioni, impedendo scansioni ripetute e massive del medesimo dispositivo, il sistema:",
       },
       {
         type: 'ul',
