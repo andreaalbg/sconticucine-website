@@ -65,7 +65,7 @@ export function buildLeadFormData(fields: Web3FormsLeadInput): FormData {
   fd.set('Comune', (fields.comune ?? '').trim())
   fd.set('Gclid', (fields.gclid ?? '').trim())
   fd.set('Fbclid', (fields.fbclid ?? '').trim())
-  fd.set('Fonte', (fields.fonte ?? '').trim())
+  fd.set('Fonte', (fields.campaign ?? '').trim() || 'diretto_atelier')
   fd.set('Campaign', (fields.campaign ?? '').trim())
   fd.set('utm_source', (fields.campaign ?? '').trim() || 'diretto_atelier')
   fd.set('MarketingConsent', consentSiNo(fields.marketingConsent))
