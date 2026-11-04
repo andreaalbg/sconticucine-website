@@ -569,7 +569,7 @@ export default function Home() {
         </div>
 
         <div className="mx-auto mt-14 flex w-full max-w-7xl flex-col items-start justify-between gap-5 border-t border-white/10 pt-6 text-xs text-[#9d9388] md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} Atelier Cucine Moderne. Tutti i diritti riservati. P.IVA 04914800265</p>
+          <p>© {new Date().getFullYear()} Atelier Cucine Moderne. Tutti i diritti riservati. G.A. Srl – P. IVA 04050050659</p>
           <div className="flex items-center gap-5">
             <a href="/privacy" className="luxury-button hover:text-white">Privacy Policy</a>
             <a

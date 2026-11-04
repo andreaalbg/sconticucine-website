@@ -14,7 +14,7 @@ const Footer = () => {
               <span className="text-gray-200">Cucine</span>
             </div>
             <p className="text-sm text-gray-300">
-              AtelierCucineModerne.it - P.IVA 04914800265
+              G.A. Srl – P. IVA 04050050659
             </p>
             <p className="text-sm text-gray-400 mt-1">
               © {currentYear} Tutti i diritti riservati
