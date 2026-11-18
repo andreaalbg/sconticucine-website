@@ -1,5 +1,6 @@
 'use client'
 
+import { pushGenerateLead } from '@/lib/push-generate-lead'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   MarketingConsentLabel,
@@ -167,6 +168,7 @@ const ShowroomForm = ({ variant = 'showroom' }: { variant?: ShowroomFormVariant 
         })
 
         await submitWeb3Forms(fd)
+        pushGenerateLead(variant === 'catalogo' ? 'richiesta_catalogo' : 'richiesta_showroom')
 
         if (variant === 'catalogo') {
           alert("Grazie! Riceverai il catalogo e l'extra sconto all'indirizzo email fornito.")

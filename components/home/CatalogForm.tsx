@@ -1,5 +1,6 @@
 'use client'
 
+import { pushGenerateLead } from '@/lib/push-generate-lead'
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import {
@@ -82,6 +83,7 @@ const CatalogForm = ({ variant = 'top' }: CatalogFormProps) => {
         })
 
         await submitWeb3Forms(fd)
+        pushGenerateLead('richiesta_catalogo')
         alert(
           variant === 'bottom'
             ? 'Grazie! Ti contatteremo per la progettazione gratuita.'
